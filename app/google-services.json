@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1051090107130",
+    "project_id": "final-bedbe",
+    "storage_bucket": "final-bedbe.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1051090107130:android:cbdc458e572ae74678a743",
+        "android_client_info": {
+          "package_name": "com.example.afinal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbAckvRI9-cxjuE-yAbhzFhXM5okGNhOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
