@@ -2,7 +2,6 @@ package com.example.afinal;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -30,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FireBaseHandler f = new FireBaseHandler(auth,this);
         mAuth = FirebaseAuth.getInstance();
         FirebaseApp.initializeApp(this);
         button = findViewById(R.id.button);
@@ -41,19 +42,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String sEmail = email.getText().toString().trim();
                 String sPassword = password.getText().toString().trim();
-                if(TextUtils.isEmpty(sEmail)|| TextUtils.isEmpty(sPassword))
-                {
-                    Toast.makeText(MainActivity.this, "error, please try again ", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    mAuth.signInWithEmailAndPassword(sEmail,sPassword).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                        @Override
-                        public void onSuccess(AuthResult authResult) {
-                            Toast.makeText(MainActivity.this, "good job! ", Toast.LENGTH_SHORT).show();
-                        }
-                    }); //לא יכול להיות במיין
-                }
+                f.signIn(sEmail,sPassword);
 
 
 
