@@ -33,6 +33,8 @@ public class FireBaseHandler {
                 @Override
                 public void onSuccess(AuthResult authResult) {
                     Toast.makeText(context, "good job! ", Toast.LENGTH_SHORT).show();
+
+
                 }
             }); //לא יכול להיות במיין
         }

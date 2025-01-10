@@ -22,26 +22,26 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    private Button button;
+    private Button buttonSubLogin;
     private Button buttonPurple;
     private EditText email;
     private EditText password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);//
         setContentView(R.layout.activity_main);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FireBaseHandler f = new FireBaseHandler(auth,this);
         mAuth = FirebaseAuth.getInstance();
         FirebaseApp.initializeApp(this);
-        button = findViewById(R.id.button);
-        buttonPurple = findViewById(R.id.button4);
-        email = findViewById(R.id.editText);
-        password = findViewById(R.id.editText2);
+        buttonSubLogin = findViewById(R.id.submitLogin);
+        buttonPurple = findViewById(R.id.buttonLoginToRegister);
+        email = findViewById(R.id.LoginEmail);
+        password = findViewById(R.id.LoginPassword);
         ref.child("STUDENTS").child("studentsId").setValue("volunteerPlace");
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonSubLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String sEmail = email.getText().toString().trim();

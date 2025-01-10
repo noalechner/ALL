@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Register extends AppCompatActivity {
 
-    private Button button;
+    private Button buttonReg;
     private EditText email;
     private EditText password;
 
@@ -32,11 +32,11 @@ public class Register extends AppCompatActivity {
             return insets;
         });
 
-        email = findViewById(R.id.editTextTextEmailAddress);
-        password = findViewById(R.id.editTextTextPassword3);
-        button = findViewById(R.id.button2);
+        email = findViewById(R.id.RegisterEmailAddress);
+        password = findViewById(R.id.RegisterPassword);
+        buttonReg = findViewById(R.id.buttonOfRegister);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String sEmailRegister = email.getText().toString().trim();
