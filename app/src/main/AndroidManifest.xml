@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Final"
         tools:targetApi="31">
         <activity
+            android:name=".RegisterHost"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterStudent"
+            android:exported="false" />
+        <activity
             android:name=".TypesVolun"
             android:exported="false" />
         <activity

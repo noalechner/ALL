@@ -47,15 +47,8 @@ public class MainActivity extends AppCompatActivity {
                 String sEmail = email.getText().toString().trim();
                 String sPassword = password.getText().toString().trim();
                 f.signIn(sEmail,sPassword);
-
-
-
             }
-
-
-
         });
-
         buttonPurple.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
