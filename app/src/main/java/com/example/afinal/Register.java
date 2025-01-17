@@ -78,6 +78,11 @@ public class Register extends AppCompatActivity {
                 {
                     page = RegisterStudent.class;
                 }
+                if (teacher.isChecked())
+                {
+                    page = RegisterTeacher.class;
+                }
+
                 Intent intent = new Intent(cntx, page);
                 startActivity(intent);
 //                String sEmail = email.getText().toString().trim();

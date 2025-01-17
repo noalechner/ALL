@@ -13,16 +13,16 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-
-public class RegisterHost extends AppCompatActivity {
+public class RegisterTeacher extends AppCompatActivity {
     String[] items = {"Apple", "Banana", "Cherry", "Grapes", "Mango"};
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_register_host);
+        setContentView(R.layout.activity_register_teacher);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -44,7 +44,7 @@ public class RegisterHost extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 // Show a toast with the selected item
                 String selectedItem = parentView.getItemAtPosition(position).toString();
-                Toast.makeText(RegisterHost.this, "Selected: " + selectedItem, Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterTeacher.this, "Selected: " + selectedItem, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -52,7 +52,6 @@ public class RegisterHost extends AppCompatActivity {
                 // Do nothing
             }
         });
-
 
     }
 }
