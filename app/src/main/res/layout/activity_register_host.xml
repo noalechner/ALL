@@ -54,15 +54,23 @@
 
     <Button
         android:id="@+id/optionsVolun"
-        android:layout_width="278dp"
-        android:layout_height="75dp"
-        android:text=" volunteen pages"
+        android:layout_width="290dp"
+        android:layout_height="69dp"
+        android:backgroundTint="#2196F3"
+        android:shadowColor="#131619"
+        android:text="Volunteen Pages"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#2196F3"
+        android:textColorHint="#2196F3"
+        android:textColorLink="#2196F3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.329" />
+        app:layout_constraintVertical_bias="0.231"
+        app:rippleColor="#2196F3"
+        app:strokeColor="#2196F3" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -73,7 +81,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.469"
+        app:layout_constraintVertical_bias="0.335"
         tools:ignore="MissingConstraints" />
 
 

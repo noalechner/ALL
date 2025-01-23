@@ -23,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Button buttonSubLogin;
-    private Button buttonPurple;
+    private Button reg;
     private EditText email;
     private EditText password;
 
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         FirebaseApp.initializeApp(this);
         buttonSubLogin = findViewById(R.id.submitLogin);
-        buttonPurple = findViewById(R.id.buttonLoginToRegister);
+        reg = findViewById(R.id.buttonLoginToRegister);
         email = findViewById(R.id.LoginEmail);
         password = findViewById(R.id.LoginPassword);
         ref.child("STUDENTS").child("studentsId").setValue("volunteerPlace");
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 f.signIn(sEmail,sPassword);
             }
         });
-        buttonPurple.setOnClickListener(new View.OnClickListener() {
+        reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Register.class);

@@ -1,9 +1,11 @@
 package com.example.afinal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -15,7 +17,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 
 public class RegisterHost extends AppCompatActivity {
-    String[] items = {"Apple", "Banana", "Cherry", "Grapes", "Mango"};
+    String[] items = {"Volunteen Pages","תנו לחיות לחיות-20/3/25", "תנו לחיות לחיות 19/3/25", "טוב השדה- 13/11/24"};
+    private Button add;
 
 
     @Override
@@ -23,10 +26,21 @@ public class RegisterHost extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register_host);
+        add = findViewById(R.id.addVolun);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+//            return insets;
+
+            add.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), AddNewVolunteen.class);
+                    startActivity(intent);
+                }
+            });
             return insets;
+
         });
 
 
