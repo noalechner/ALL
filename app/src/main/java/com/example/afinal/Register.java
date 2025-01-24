@@ -85,9 +85,9 @@ public class Register extends AppCompatActivity {
 
                 Intent intent = new Intent(cntx, page);
                 startActivity(intent);
-//                String sEmail = email.getText().toString().trim();
-//                String sPassword = password.getText().toString().trim();
-//                f.signIn(sEmail,sPassword);
+                String sEmail = email.getText().toString().trim();
+                String sPassword = password.getText().toString().trim();
+                f.signIn(sEmail,sPassword);
 //               ולעשות לכל סוג אינטנט משלו לוודא שיוזר בוחר  רק דבר אחד
 
             }

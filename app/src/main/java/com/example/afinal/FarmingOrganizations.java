@@ -13,8 +13,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class AnimalOrganizations extends AppCompatActivity {
-    String[] organs = {"Organizations","תנו לחיות לחיות", "צער בעלי חיים", "חבר על ארבע"};
+public class FarmingOrganizations extends AppCompatActivity {
+    String[] organs = {"Organizations","התאחדות חקלאי ישראל", "ארצנו", "השומר החדש"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,17 +43,17 @@ public class AnimalOrganizations extends AppCompatActivity {
                 String selectedAnimal = organs[position];
 
                 // Navigate to the corresponding page based on selection
-                if (selectedAnimal.equals("תנו לחיות לחיות")) {
-                    Intent tnoosIntent = new Intent(AnimalOrganizations.this, TnooLahayotLihyotDetailsPage.class);
-                    startActivity(tnoosIntent);
+                if (selectedAnimal.equals("התאחדות חקלאי ישראל")) {
+                    Intent haitahdootIntent = new Intent(FarmingOrganizations.this, ItahdootHaklaeyIsraelDetailsPage.class);
+                    startActivity(haitahdootIntent);
                 }
-                else if (selectedAnimal.equals("צער בעלי חיים")) {
-                    Intent tsaarIntent = new Intent(AnimalOrganizations.this, TsaarBaaleyHaimDetailsPage.class);
-                    startActivity(tsaarIntent);
+                else if (selectedAnimal.equals("ארצנו")) {
+                    Intent artsenooIntent = new Intent(FarmingOrganizations.this, ArtsenooDetailsPage.class);
+                    startActivity(artsenooIntent);
                 }
-                else if (selectedAnimal.equals("חבר על ארבע")) {
-                    Intent haverIntent = new Intent(AnimalOrganizations.this, HaverAlArbaDetailsPage.class);
-                    startActivity(haverIntent);
+                else if (selectedAnimal.equals("השומר החדש")) {
+                    Intent hashomerIntent = new Intent(FarmingOrganizations.this, HashomerHaHadashDetailsPage.class);
+                    startActivity(hashomerIntent);
                 }
             }
 

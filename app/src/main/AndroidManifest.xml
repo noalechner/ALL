@@ -13,6 +13,27 @@
         android:theme="@style/Theme.Final"
         tools:targetApi="31">
         <activity
+            android:name=".HashomerHaHadashDetailsPage"
+            android:exported="false" />
+        <activity
+            android:name=".ArtsenooDetailsPage"
+            android:exported="false" />
+        <activity
+            android:name=".ItahdootHaklaeyIsraelDetailsPage"
+            android:exported="false" />
+        <activity
+            android:name=".FarmingOrganizations"
+            android:exported="false" />
+        <activity
+            android:name=".GagLahayotDetailsPage"
+            android:exported="false" />
+        <activity
+            android:name=".HaverAlArbaDetailsPage"
+            android:exported="false" />
+        <activity
+            android:name=".TsaarBaaleyHaimDetailsPage"
+            android:exported="false" />
+        <activity
             android:name=".TnooLahayotLihyotDetailsPage"
             android:exported="false" />
         <activity

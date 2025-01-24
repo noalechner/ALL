@@ -9,11 +9,11 @@
 
 
     <TextView
-        android:id="@+id/chooseVolunTitle"
+        android:id="@+id/chooseOrganTitle"
         android:layout_width="331dp"
         android:layout_height="232dp"
         android:fontFamily="serif"
-        android:text="תנו לחיות לחיות"
+        android:text="Choose your Volunteen Organization"
         android:textColor="#2196F3"
         android:textSize="48sp"
         android:textStyle="bold"
@@ -23,5 +23,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.08" />
 
+    <Spinner
+        android:id="@+id/spinnerFarmOrgans"
+        android:layout_width="254dp"
+        android:layout_height="44dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.414"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.433"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

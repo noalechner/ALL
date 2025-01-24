@@ -48,10 +48,11 @@ public class RegisterStudent extends AppCompatActivity {
                     Intent animalsIntent = new Intent(RegisterStudent.this, AnimalOrganizations.class);
                     startActivity(animalsIntent);
                 }
-//                else if (selectedAnimal.equals("Cat")) {
-//                    Intent catIntent = new Intent(MainActivity.this, CatsActivity.class);
-//                    startActivity(catIntent);
-//                } else if (selectedAnimal.equals("Snake")) {
+                else if (selectedAnimal.equals("חקלאות")) {
+                    Intent farmingIntent = new Intent(RegisterStudent.this, FarmingOrganizations.class);
+                    startActivity(farmingIntent);
+                }
+//                else if (selectedAnimal.equals("Snake")) {
 //                    Intent snakeIntent = new Intent(MainActivity.this, SnakesActivity.class);
 //                    startActivity(snakeIntent);
 //                }
