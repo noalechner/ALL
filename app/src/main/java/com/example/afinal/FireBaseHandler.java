@@ -2,6 +2,7 @@ package com.example.afinal;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,11 +15,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.logging.Logger;
+
 public class FireBaseHandler {
     private static FirebaseDatabase database = FirebaseDatabase.getInstance();
     private static DatabaseReference myRef = database.getReference();
     private static FirebaseAuth auth;
     private static Context context;
+    private static final String TAG = "noa";
 
     public FireBaseHandler(FirebaseAuth auth, Context context) {
         this.auth = auth;
@@ -45,10 +49,12 @@ public class FireBaseHandler {
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+//                        Toast.makeText(context,sEmail+ " " + sPassword, Toast.LENGTH_SHORT).show();
                         if (task.isSuccessful()) {
                             Toast.makeText(context, "success! ", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(context, "failed ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "failed "+ task ,Toast.LENGTH_SHORT).show();
+                            Log.d(TAG, "test failed");
 
 
                         }
