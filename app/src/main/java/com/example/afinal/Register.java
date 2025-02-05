@@ -16,6 +16,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity {
 
@@ -28,10 +30,19 @@ public class Register extends AppCompatActivity {
     private RadioButton host;
     private static Context context;
 
+
+
+
+
+
+
+
 //    public Register(Context context) {
 //        this.context = context;
 //    }
 //
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +55,7 @@ public class Register extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
 
         email = findViewById(R.id.RegisterEmailAddress);
         password = findViewById(R.id.RegisterPassword);
@@ -62,6 +74,10 @@ public class Register extends AppCompatActivity {
                 f.RegisterUser(sEmailRegister,sPasswordRegister);
             }
         });
+
+
+
+
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
            public void onClick(View v) {
@@ -83,11 +99,13 @@ public class Register extends AppCompatActivity {
                     page = RegisterTeacher.class;
                 }
 
-                Intent intent = new Intent(cntx, page);
-                startActivity(intent);
                 String sEmail = email.getText().toString().trim();
                 String sPassword = password.getText().toString().trim();
                 f.signIn(sEmail,sPassword);
+                User user = new User("noa1", "noa2");
+                user.writeNewUser("123");
+                Intent intent = new Intent(cntx, page);
+                startActivity(intent);
 //               ולעשות לכל סוג אינטנט משלו לוודא שיוזר בוחר  רק דבר אחד
 
             }
