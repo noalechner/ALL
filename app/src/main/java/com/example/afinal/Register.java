@@ -73,6 +73,30 @@ public class Register extends AppCompatActivity {
             public void onClick(View v) {
                 String sEmailRegister = email.getText().toString().trim();
                 String sPasswordRegister = password.getText().toString().trim();
+                Context cntx = getApplicationContext();
+                Toast.makeText(cntx, "noa", Toast.LENGTH_SHORT).show();
+
+//                Class page = RegisterStudent.class;
+                Class page = null;
+                if (host.isChecked()) {
+                    page = RegisterHost.class;
+                }
+                if (student.isChecked()) {
+                    page = RegisterStudent.class;
+                }
+                if (teacher.isChecked()) {
+                    page = RegisterTeacher.class;
+                }
+
+                String sEmail = email.getText().toString().trim();
+                String sPassword = password.getText().toString().trim();
+                f.signIn(sEmail, sPassword);
+                User user = new User("noa1", "noa2");
+//                user.writeNewUser("123");
+                Intent intent = new Intent(cntx, page);
+                startActivity(intent);
+//               ולעשות לכל סוג אינטנט משלו לוודא שיוזר בוחר  רק דבר אחד
+
                 f.RegisterUser(sEmailRegister, sPasswordRegister);
 //                if (TextUtils.isEmpty(sEmailRegister) || TextUtils.isEmpty(sPasswordRegister)) {
 //                    Toast.makeText("Please enter email and password", Toast.LENGTH_SHORT).show();
@@ -91,10 +115,10 @@ public class Register extends AppCompatActivity {
                 auth.createUserWithEmailAndPassword(sEmailRegister, sPasswordRegister)
                         .addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
-                                FirebaseUser user = auth.getCurrentUser();
-                                if (user != null) {
+                                FirebaseUser user2 = auth.getCurrentUser();
+                                if (user2 != null) {
                                     // Save user role in Firebase Database
-                                    String userId = user.getUid();
+                                    String userId = user2.getUid();
                                     databaseReference.child(userId).setValue(new User(sEmailRegister, role))
                                             .addOnCompleteListener(task1 -> {
                                                 if (task1.isSuccessful()) {
@@ -126,35 +150,7 @@ public class Register extends AppCompatActivity {
 //        }
 
 
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Context cntx = getApplicationContext();
-                Toast.makeText(cntx, "noa", Toast.LENGTH_SHORT).show();
 
-//                Class page = RegisterStudent.class;
-                Class page = null;
-                if (host.isChecked()) {
-                    page = RegisterHost.class;
-                }
-                if (student.isChecked()) {
-                    page = RegisterStudent.class;
-                }
-                if (teacher.isChecked()) {
-                    page = RegisterTeacher.class;
-                }
-
-                String sEmail = email.getText().toString().trim();
-                String sPassword = password.getText().toString().trim();
-                f.signIn(sEmail, sPassword);
-                User user = new User("noa1", "noa2");
-//                user.writeNewUser("123");
-                Intent intent = new Intent(cntx, page);
-                startActivity(intent);
-//               ולעשות לכל סוג אינטנט משלו לוודא שיוזר בוחר  רק דבר אחד
-
-            }
-        });
     }
 
 }
