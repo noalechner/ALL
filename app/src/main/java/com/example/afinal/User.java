@@ -25,6 +25,21 @@ public class User {
 
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public void writeNewUser(String userId) {
         mDatabase.child(userId).child("email").setValue(this.email);

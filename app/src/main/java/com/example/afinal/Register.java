@@ -68,11 +68,14 @@ public class Register extends AppCompatActivity {
 
 
 
+
+
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String sEmailRegister = email.getText().toString().trim();
                 String sPasswordRegister = password.getText().toString().trim();
+                int selectedId = roleRadioGroup.getCheckedRadioButtonId();
                 Context cntx = getApplicationContext();
                 Toast.makeText(cntx, "noa", Toast.LENGTH_SHORT).show();
 
@@ -97,13 +100,13 @@ public class Register extends AppCompatActivity {
                 startActivity(intent);
 //               ולעשות לכל סוג אינטנט משלו לוודא שיוזר בוחר  רק דבר אחד
 
-                f.RegisterUser(sEmailRegister, sPasswordRegister);
+                f.RegisterUser(sEmailRegister, sPasswordRegister,selectedId);
 //                if (TextUtils.isEmpty(sEmailRegister) || TextUtils.isEmpty(sPasswordRegister)) {
 //                    Toast.makeText("Please enter email and password", Toast.LENGTH_SHORT).show();
 //                    return;
 //                }
 
-                int selectedId = roleRadioGroup.getCheckedRadioButtonId();
+
 //                if (selectedId == -1) {
 //                    Toast.makeText(this, "Please select a role", Toast.LENGTH_SHORT).show();
 //                    return;
@@ -112,27 +115,20 @@ public class Register extends AppCompatActivity {
                 RadioButton selectedRadioButton = findViewById(selectedId);
                 String role = selectedRadioButton.getText().toString();
 
-                auth.createUserWithEmailAndPassword(sEmailRegister, sPasswordRegister)
-                        .addOnCompleteListener(task -> {
-                            if (task.isSuccessful()) {
-                                FirebaseUser user2 = auth.getCurrentUser();
-                                if (user2 != null) {
-                                    // Save user role in Firebase Database
-                                    String userId = user2.getUid();
-                                    databaseReference.child(userId).setValue(new User(sEmailRegister, role))
-                                            .addOnCompleteListener(task1 -> {
-                                                if (task1.isSuccessful()) {
-                                                    Toast.makeText(Register.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                FirebaseUser user2 = auth.getCurrentUser();
+
+                    // Save user role in Firebase Database
+                    String userId = user2.getUid();
+                    databaseReference.child(userId).setValue(new User( role, sEmailRegister))
+                            .addOnCompleteListener(task1 -> {
+                                if (task1.isSuccessful()) {
+                                    Toast.makeText(Register.this, "Registration Successful", Toast.LENGTH_SHORT).show();
 //                                                    redirectToRoleActivity(role);
-                                                } else {
-                                                    Toast.makeText(Register.this, "Database Error: " + task1.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                                                }
-                                            });
+                                } else {
+                                    Toast.makeText(Register.this, "Database Error: " + task1.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
-                            } else {
-                                Toast.makeText(Register.this, "Authentication Failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                            });
+
             }
 
         });
