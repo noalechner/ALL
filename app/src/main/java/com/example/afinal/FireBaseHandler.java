@@ -70,12 +70,11 @@ public class FireBaseHandler {
     }
 
 
-    public void RegisterUser(String sEmail, String sPassword, int selectedId ) {
+    public void RegisterUser(String sEmail, String sPassword) {
         auth.createUserWithEmailAndPassword(sEmail, sPassword)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        myRef.child("users").child("userId").setValue(selectedId);
 //                        Toast.makeText(context,sEmail+ " " + sPassword, Toast.LENGTH_SHORT).show();
                         if (task.isSuccessful()) {
                             Toast.makeText(context, "success! ", Toast.LENGTH_SHORT).show();
@@ -107,7 +106,7 @@ public class FireBaseHandler {
                     // מיפוי הנתונים לאובייקט User
                     if (dataSnapshot.exists()) {
                         String email = dataSnapshot.child("email").getValue(String.class);
-                        String role = dataSnapshot.child("username").getValue(String.class);
+                        String role = dataSnapshot.child("job").getValue(String.class);
 
                         userData[0] = new User(email, role);
                     }

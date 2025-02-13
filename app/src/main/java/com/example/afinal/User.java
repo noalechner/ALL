@@ -8,7 +8,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class User {
     private DatabaseReference mDatabase;
-    public String username;
+    public String role;
     public String email;
     private String TAG = "Vuser";
 
@@ -17,20 +17,20 @@ public class User {
     }
 
 
-    public User(String username, String email) {
+    public User(String role, String email) {
 
-        this.username = username;
+        this.role = role;
         this.email = email;
         mDatabase = FirebaseDatabase.getInstance().getReference("users");
 
     }
 
-    public String getUsername() {
-        return username;
+    public String getRole() {
+        return role;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getEmail() {
@@ -43,7 +43,7 @@ public class User {
 
     public void writeNewUser(String userId) {
         mDatabase.child(userId).child("email").setValue(this.email);
-        mDatabase.child(userId).child("username").setValue(this.username);
+        mDatabase.child(userId).child("role").setValue(this.role);
         Log.d(TAG, "users saved");
 
     }

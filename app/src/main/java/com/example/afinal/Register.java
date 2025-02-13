@@ -32,7 +32,7 @@ public class Register extends AppCompatActivity {
     private RadioButton student;
     private RadioButton host;
     private RadioGroup roleRadioGroup;
-    private DatabaseReference databaseReference;
+    private FirebaseDatabase firebaseDatabase;
     private static Context context;
     private String role;
 
@@ -48,7 +48,7 @@ public class Register extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register);
         FirebaseAuth auth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        firebaseDatabase = FirebaseDatabase.getInstance();
         FireBaseHandler f = new FireBaseHandler(auth, this);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -93,14 +93,12 @@ public class Register extends AppCompatActivity {
 
                 String sEmail = email.getText().toString().trim();
                 String sPassword = password.getText().toString().trim();
+                f.RegisterUser(sEmailRegister, sPasswordRegister);
                 f.signIn(sEmail, sPassword);
-                User user = new User("noa1", "noa2");
-//                user.writeNewUser("123");
-                Intent intent = new Intent(cntx, page);
-                startActivity(intent);
+
 //               ולעשות לכל סוג אינטנט משלו לוודא שיוזר בוחר  רק דבר אחד
 
-                f.RegisterUser(sEmailRegister, sPasswordRegister,selectedId);
+
 //                if (TextUtils.isEmpty(sEmailRegister) || TextUtils.isEmpty(sPasswordRegister)) {
 //                    Toast.makeText("Please enter email and password", Toast.LENGTH_SHORT).show();
 //                    return;
@@ -119,15 +117,21 @@ public class Register extends AppCompatActivity {
 
                     // Save user role in Firebase Database
                     String userId = user2.getUid();
-                    databaseReference.child(userId).setValue(new User( role, sEmailRegister))
+                Class finalPage = page;
+                User vUser = new User( role, sEmailRegister);
+                firebaseDatabase.getReference("Users").child(userId).setValue(vUser)
                             .addOnCompleteListener(task1 -> {
                                 if (task1.isSuccessful()) {
                                     Toast.makeText(Register.this, "Registration Successful", Toast.LENGTH_SHORT).show();
 //                                                    redirectToRoleActivity(role);
+                                    Intent intent = new Intent(cntx, finalPage);
+                                    startActivity(intent);
                                 } else {
                                     Toast.makeText(Register.this, "Database Error: " + task1.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
+
                             });
+
 
             }
 
