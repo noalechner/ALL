@@ -1,6 +1,7 @@
 package com.example.afinal;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,11 +16,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class RegisterHost extends AppCompatActivity {
     String[] items = {"Volunteen Pages","תנו לחיות לחיות-20/3/25", "תנו לחיות לחיות 19/3/25", "טוב השדה- 13/11/24"};
-    private Button add;
+    List<String> list = new ArrayList<>();
 
+    private Button add;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +45,15 @@ public class RegisterHost extends AppCompatActivity {
                 }
             });
             return insets;
-
         });
-
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String nameVol = sharedPreferences.getString("vName", ""); // Default is empty if not found
+        list.add(nameVol);
 
         Spinner spinner = findViewById(R.id.spinner2);
 
         // Create an ArrayAdapter using a simple spinner item layout and the string array
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, list);
 
         // Set the adapter to the spinner
         spinner.setAdapter(adapter);
@@ -60,6 +66,7 @@ public class RegisterHost extends AppCompatActivity {
                 String selectedItem = parentView.getItemAtPosition(position).toString();
                 Toast.makeText(RegisterHost.this, "Selected: " + selectedItem, Toast.LENGTH_SHORT).show();
             }
+
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {

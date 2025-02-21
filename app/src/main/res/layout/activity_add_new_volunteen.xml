@@ -92,7 +92,7 @@
         app:layout_constraintVertical_bias="0.408" />
 
     <EditText
-        android:id="@+id/inputAdress"
+        android:id="@+id/inputAdressVolun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -124,6 +124,7 @@
         android:backgroundTint="#2196F3"
         android:shadowColor="#131619"
         android:text="done"
+        android:onClick="onClick"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#2196F3"
         android:textColorHint="#2196F3"
@@ -138,7 +139,7 @@
         app:strokeColor="#2196F3" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/inputDateVolun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -151,7 +152,7 @@
         app:layout_constraintVertical_bias="0.313" />
 
     <EditText
-        android:id="@+id/editTextTime"
+        android:id="@+id/inputTimeVolun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
