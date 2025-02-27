@@ -67,9 +67,6 @@ public class Register extends AppCompatActivity {
         roleRadioGroup = findViewById(R.id.radioGroupRole);
 
 
-
-
-
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,26 +109,25 @@ public class Register extends AppCompatActivity {
 
                 RadioButton selectedRadioButton = findViewById(selectedId);
                 String role = selectedRadioButton.getText().toString();
-
-                FirebaseUser user2 = auth.getCurrentUser();
-
-                    // Save user role in Firebase Database
-                    String userId = user2.getUid();
                 Class finalPage = page;
-                User vUser = new User( role, sEmailRegister);
+//*** התבנית לשמירה בפיירבייס
+                FirebaseUser user2 = auth.getCurrentUser();
+                // Save user role in Firebase Database
+                String userId = user2.getUid();
+                User vUser = new User(role, sEmailRegister);
                 firebaseDatabase.getReference("Users").child(userId).setValue(vUser)
-                            .addOnCompleteListener(task1 -> {
-                                if (task1.isSuccessful()) {
-                                    Toast.makeText(Register.this, "Registration Successful", Toast.LENGTH_SHORT).show();
+                        .addOnCompleteListener(task1 -> {
+                            if (task1.isSuccessful()) {
+                                Toast.makeText(Register.this, "Registration Successful", Toast.LENGTH_SHORT).show();
 //                                                    redirectToRoleActivity(role);
-                                    Intent intent = new Intent(cntx, finalPage);
-                                    startActivity(intent);
-                                } else {
-                                    Toast.makeText(Register.this, "Database Error: " + task1.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                                }
+                                Intent intent = new Intent(cntx, finalPage);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(Register.this, "Database Error: " + task1.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
 
-                            });
-
+                        });
+//***
 
             }
 
@@ -148,7 +144,6 @@ public class Register extends AppCompatActivity {
 //                this.role = role;
 //            }
 //        }
-
 
 
     }
