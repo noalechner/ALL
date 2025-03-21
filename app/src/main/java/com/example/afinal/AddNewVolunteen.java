@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +18,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 public class AddNewVolunteen extends AppCompatActivity {
     private EditText nameVolunteen;
@@ -47,7 +50,7 @@ public class AddNewVolunteen extends AppCompatActivity {
         FirebaseAuth auth = FirebaseAuth.getInstance();
 
 
-        doneButton.setOnClickListener(new View.OnClickListener() {
+            doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String vName = nameVolunteen.getText().toString().trim();
@@ -68,8 +71,10 @@ public class AddNewVolunteen extends AppCompatActivity {
                 firebaseDatabase1.getReference("HostEvents").child(userId).setValue(e)
                         .addOnCompleteListener(task1 -> {
                             if (task1.isSuccessful()) {
-                                Intent intent = new Intent(cntx, RegisterHost.class);
-                                startActivity(intent);
+//                                Intent intent = new Intent(cntx, RegisterHost.class);
+//                                startActivity(intent);
+                                Query myTopPostsQuery = firebaseDatabase1.getReference("HostEvents").child(userId).child("name").orderByValue();
+                                Log.d("HostEvents",myTopPostsQuery.toString());
                             } else {
                                 Toast.makeText(AddNewVolunteen.this, "Database Error: " + task1.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
