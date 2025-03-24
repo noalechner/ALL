@@ -24,43 +24,26 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
-    private FirebaseAuth mAuth;
-    private Button buttonSubLogin;
-    private Button reg;
-    private EditText email;
-    private EditText password;
-    private String role;
-    private Button goStudent;
-    private Button goTeacher;
-    private Button goHost;
+    private Button s;
+    private Button t;
+    private Button h;
+    private Button register;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);//
         setContentView(R.layout.activity_main);
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        FireBaseHandler f = new FireBaseHandler(auth,this);
-        mAuth = FirebaseAuth.getInstance();
-        FirebaseApp.initializeApp(this);
-        buttonSubLogin = findViewById(R.id.submitLogin);
-        reg = findViewById(R.id.buttonLoginToRegister);
-        email = findViewById(R.id.LoginEmail);
-        password = findViewById(R.id.LoginPassword);
-        goStudent = findViewById(R.id.goToStudent);
-        goTeacher = findViewById(R.id.goToTeacher);
-        goHost = findViewById(R.id.goToHost);
-        ref.child("STUDENTS").child("studentsId").setValue("volunteerPlace");
+        s = findViewById(R.id.iAmStudent);
+        t = findViewById(R.id.iAmTeacher);
+        h = findViewById(R.id.iAmHost);
+        register = findViewById(R.id.goToRegister);
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Get Post object and use the values to update the UI
                 User post = dataSnapshot.getValue(User.class);
-                role = post.getRole();
-                Toast.makeText(getApplicationContext(), "the role is "+ role,Toast.LENGTH_SHORT).show();
-
-                // ..
             }
 
             @Override
@@ -68,56 +51,38 @@ public class MainActivity extends AppCompatActivity {
 
             }
         };
-        buttonSubLogin.setOnClickListener(new View.OnClickListener() {
+        s.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String sEmail = email.getText().toString().trim();
-                String sPassword = password.getText().toString().trim();
-
-//                if(role == "student")
-//                {
-//                    Intent intent = new Intent(getApplicationContext(), RegisterStudent.class);
-//                    startAoctivity(intent);
-//                }
-                f.signIn(sEmail,sPassword);
+                Intent intent = new Intent(getApplicationContext(), LoginForStudent.class);
+                startActivity(intent);
             }
         });
-        reg.setOnClickListener(new View.OnClickListener() {
+        t.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LoginForTeacher.class);
+                startActivity(intent);
+            }
+        });
+
+
+        h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LoginForHost.class);
+                startActivity(intent);
+            }
+        });
+
+
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Register.class);
                 startActivity(intent);
             }
         });
-
-
-        goStudent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), RegisterStudent.class);
-                startActivity(intent);
-            }
-        });
-
-
-        goTeacher.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), RegisterTeacher.class);
-                startActivity(intent);
-            }
-        });
-
-
-
-        goHost.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), RegisterHost.class);
-                startActivity(intent);
-            }
-        });
-
 
     }
 }
