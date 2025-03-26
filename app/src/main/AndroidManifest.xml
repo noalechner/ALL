@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Final"
         tools:targetApi="31">
         <activity
+            android:name=".ListOfVolunteen"
+            android:exported="false" />
+        <activity
             android:name=".HashomerHaHadashDetailsPage"
             android:exported="false" />
         <activity
@@ -55,16 +58,16 @@
             android:name=".RegisterStudent"
             android:exported="false" />
         <activity
-            android:name=".TypesVolun"
+            android:name=".LoginForHost"
             android:exported="false" />
         <activity
             android:name=".RV"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2"
+            android:name=".LoginForStudent"
             android:exported="false" />
         <activity
-            android:name=".RecycleView"
+            android:name=".LoginForTeacher"
             android:exported="false" />
         <activity
             android:name=".Register"

@@ -25,6 +25,7 @@ public class RegisterHost extends AppCompatActivity {
     List<String> list = new ArrayList<>();
 
     private Button add;
+    private Button volunList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class RegisterHost extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register_host);
         add = findViewById(R.id.addVolun);
+        volunList = findViewById(R.id.goToList);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -41,6 +43,14 @@ public class RegisterHost extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(getApplicationContext(), AddNewVolunteen.class);
+                    startActivity(intent);
+                }
+            });
+
+            volunList.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), ListOfVolunteen.class);
                     startActivity(intent);
                 }
             });
@@ -66,6 +76,8 @@ public class RegisterHost extends AppCompatActivity {
                 String selectedItem = parentView.getItemAtPosition(position).toString();
                 Toast.makeText(RegisterHost.this, "Selected: " + selectedItem, Toast.LENGTH_SHORT).show();
             }
+
+
 
 
             @Override

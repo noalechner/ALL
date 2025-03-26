@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,6 +25,7 @@ public class LoginForHost extends AppCompatActivity {
     private EditText email3;
     private EditText password3;
     private String role;
+
 
 
     @Override
@@ -64,6 +66,8 @@ public class LoginForHost extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), RegisterHost.class);
                 startActivity(intent);
             }
+
+
         });
 
 
