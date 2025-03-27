@@ -28,7 +28,7 @@ public class ListOfVolunteen extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_list_of_volunteen);
         simpleList = findViewById(R.id.simpleList);
-        String countryList[] = {"India", "China", "australia", "Portugle", "America", "NewZealand"};
+        String countryList[] = {"תנו לחיות לחיות", "צער בעלי חיים", "חקלאות ישראל", "עמותה לניצולי שואה", "התנדבות בשומרון", "חושבים על העתיד"};
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,R.layout.listview, R.id.textView,countryList);
         simpleList.setAdapter(arrayAdapter);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -37,30 +37,15 @@ public class ListOfVolunteen extends AppCompatActivity {
             return insets;
         });
 
-
-
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("HostEvents");
         reference.addValueEventListener(new ValueEventListener() {
-
-
-
-
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-
-
-//                list.clear();
-//                for(DataSnapshot snapshot1 : snapshot.getChildren()) {
+                for(DataSnapshot snapshot1 : snapshot.getChildren()) {
 //                    list.add(snapshot1.getValue().toString());
-//
-//                }
+                }
 //                adapter.notifyDataSetChanged();
             }
-
-
-
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

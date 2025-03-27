@@ -60,7 +60,7 @@ public class Register extends AppCompatActivity {
         email = findViewById(R.id.RegisterEmailAddress);
         password = findViewById(R.id.RegisterPassword);
         buttonReg = findViewById(R.id.buttonOfRegister);
-        submitButton = findViewById(R.id.Submit);
+
         teacher = findViewById(R.id.teacher);
         student = findViewById(R.id.student);
         host = findViewById(R.id.host);

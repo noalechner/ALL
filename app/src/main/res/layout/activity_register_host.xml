@@ -86,11 +86,21 @@
 
     <Button
         android:id="@+id/goToList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="goToList"
-        tools:layout_editor_absoluteX="159dp"
-        tools:layout_editor_absoluteY="326dp" />
-
+        android:layout_width="204dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#2196F3"
+        android:shadowColor="#131619"
+        android:text="list of volunteers"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#2196F3"
+        android:textColorHint="#2196F3"
+        android:textColorLink="#2196F3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.481"
+        app:rippleColor="#2196F3"
+        app:strokeColor="#2196F3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

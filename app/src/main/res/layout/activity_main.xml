@@ -14,7 +14,7 @@
         android:layout_height="140dp"
         android:background="@android:color/transparent"
         android:fontFamily="sans-serif"
-        android:text="Do Not Have An Account? Sign In"
+        android:text="Do Not Have An Account? Register"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"

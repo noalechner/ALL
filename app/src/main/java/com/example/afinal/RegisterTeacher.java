@@ -14,7 +14,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class RegisterTeacher extends AppCompatActivity {
-    String[] items = {"Apple", "Banana", "Cherry", "Grapes", "Mango"};
+    String[] items = {"noa@gmail.com", "ben@gmail.com", "tal@gamil.com", "joe@gmail.com4", "dana@gmail.com"};
 
 
 
