@@ -10,8 +10,8 @@
 
     <Button
         android:id="@+id/goToRegister"
-        android:layout_width="262dp"
-        android:layout_height="140dp"
+        android:layout_width="333dp"
+        android:layout_height="135dp"
         android:background="@android:color/transparent"
         android:fontFamily="sans-serif"
         android:text="Do Not Have An Account? Register"

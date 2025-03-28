@@ -1,5 +1,9 @@
 package com.example.afinal;
 
+import static android.app.PendingIntent.getActivity;
+
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,6 +19,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class RegisterTeacher extends AppCompatActivity {
     String[] items = {"noa@gmail.com", "ben@gmail.com", "tal@gamil.com", "joe@gmail.com4", "dana@gmail.com"};
+    private WifiReceiver wifiReceiver;
 
 
 
@@ -29,8 +34,7 @@ public class RegisterTeacher extends AppCompatActivity {
             return insets;
         });
 
-
-        Spinner spinner = findViewById(R.id.spinner2);
+            Spinner spinner = findViewById(R.id.spinner2);
 
         // Create an ArrayAdapter using a simple spinner item layout and the string array
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
@@ -51,7 +55,36 @@ public class RegisterTeacher extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parentView) {
                 // Do nothing
             }
+
+
+
+
+
         });
 
+
+
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Create and register the BroadcastReceiver to listen for connectivity changes
+        wifiReceiver = new WifiReceiver();
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(wifiReceiver, filter);  // Use getActivity() to access the context
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        // Unregister the receiver when the fragment is paused
+        if (wifiReceiver != null) {
+            unregisterReceiver(wifiReceiver);
+        }
+    }
+
+//******
 }
