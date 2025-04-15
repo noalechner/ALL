@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -37,7 +36,7 @@ public class LoginForHost extends AppCompatActivity {
         FireBaseHandler f = new FireBaseHandler(auth,this);
         mAuth = FirebaseAuth.getInstance();
         FirebaseApp.initializeApp(this);
-        subHost = findViewById(R.id.submitGoToHost);
+        subHost = findViewById(R.id.GoToFinishedVolunteers);
         email3 = findViewById(R.id.hLoginEmail);
         password3 = findViewById(R.id.hLoginPassword);
         ref.child("STUDENTS").child("studentsId").setValue("volunteerPlace");

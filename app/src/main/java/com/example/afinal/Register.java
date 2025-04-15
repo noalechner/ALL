@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -111,7 +112,15 @@ public class Register extends AppCompatActivity {
                 String role = selectedRadioButton.getText().toString();
                 Class finalPage = page;
 //*** התבנית לשמירה בפיירבייס
-                FirebaseUser user2 = auth.getCurrentUser();
+                FirebaseUser user2=null;
+                try {
+                    user2 = auth.getCurrentUser();
+                } catch (RuntimeException e){
+                    Context cntx1 = getApplicationContext();
+                    Toast.makeText(cntx1, "unable to get current user from firebase", Toast.LENGTH_SHORT).show();
+                }
+
+//                Log.d("noa", String.valueOf(user2));
                 // Save user role in Firebase Database
                 String userId = user2.getUid();
                 User vUser = new User(role, sEmailRegister);

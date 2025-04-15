@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -26,12 +27,14 @@ import com.google.firebase.database.annotations.NotNull;
 public class RegisterStudent extends AppCompatActivity {
     String[] items = {"Volunteen Type","חיות", "חקלאות", "ניצולי שואה","חולי סרטן"};
     private FirebaseDatabase firebaseDatabase;
+    private Button fVolun;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register_student);
+        fVolun = findViewById(R.id.GoToFinishedVolunteers);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -88,6 +91,15 @@ public class RegisterStudent extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 // Do nothing
+            }
+        });
+
+
+        fVolun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Finished1.class);
+                startActivity(intent);
             }
         });
     }
