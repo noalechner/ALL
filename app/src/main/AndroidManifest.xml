@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Final"
         tools:targetApi="31">
         <activity
+            android:name=".reminderManager"
+            android:exported="false" />
+        <activity
             android:name=".Finished1"
             android:exported="false" />
         <activity
@@ -87,6 +90,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver android:name=".ReminderReceiver" />
+
     </application>
 
 </manifest>

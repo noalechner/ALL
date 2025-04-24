@@ -28,6 +28,7 @@ public class RegisterStudent extends AppCompatActivity {
     String[] items = {"Volunteen Type","חיות", "חקלאות", "ניצולי שואה","חולי סרטן"};
     private FirebaseDatabase firebaseDatabase;
     private Button fVolun;
+    private Button scheduledVolunteers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class RegisterStudent extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register_student);
         fVolun = findViewById(R.id.GoToFinishedVolunteers);
+        scheduledVolunteers = findViewById(R.id.scheduledV);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -99,6 +101,14 @@ public class RegisterStudent extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Finished1.class);
+                startActivity(intent);
+            }
+        });
+
+        scheduledVolunteers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), reminderManager.class);
                 startActivity(intent);
             }
         });

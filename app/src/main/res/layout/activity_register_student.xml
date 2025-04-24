@@ -37,10 +37,30 @@
         android:textColorLink="#2196F3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.434"
+        app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.954"
+        app:layout_constraintVertical_bias="0.922"
+        app:rippleColor="#2196F3"
+        app:strokeColor="#2196F3" />
+
+    <Button
+        android:id="@+id/scheduledV"
+        android:layout_width="137dp"
+        android:layout_height="52dp"
+        android:backgroundTint="#2196F3"
+        android:shadowColor="#131619"
+        android:text="Scheduled Volunteers"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#2196F3"
+        android:textColorHint="#2196F3"
+        android:textColorLink="#2196F3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.922"
         app:rippleColor="#2196F3"
         app:strokeColor="#2196F3" />
 
