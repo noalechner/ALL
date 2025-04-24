@@ -17,7 +17,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class RegisterTeacher extends AppCompatActivity {
+public class TeacherHome extends AppCompatActivity {
     String[] items = {"noa@gmail.com", "ben@gmail.com", "tal@gamil.com", "joe@gmail.com4", "dana@gmail.com"};
     private WifiReceiver wifiReceiver;
 
@@ -48,7 +48,7 @@ public class RegisterTeacher extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 // Show a toast with the selected item
                 String selectedItem = parentView.getItemAtPosition(position).toString();
-                Toast.makeText(RegisterTeacher.this, "Selected: " + selectedItem, Toast.LENGTH_SHORT).show();
+                Toast.makeText(TeacherHome.this, "Selected: " + selectedItem, Toast.LENGTH_SHORT).show();
             }
 
             @Override

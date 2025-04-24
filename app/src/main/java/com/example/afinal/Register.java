@@ -3,8 +3,6 @@ package com.example.afinal;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +18,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity {
@@ -80,13 +77,13 @@ public class Register extends AppCompatActivity {
 //                Class page = RegisterStudent.class;
                 Class page = null;
                 if (host.isChecked()) {
-                    page = RegisterHost.class;
+                    page = HostHome.class;
                 }
                 if (student.isChecked()) {
-                    page = RegisterStudent.class;
+                    page = StudentHome.class;
                 }
                 if (teacher.isChecked()) {
-                    page = RegisterTeacher.class;
+                    page = TeacherHome.class;
                 }
 
                 String sEmail = email.getText().toString().trim();

@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class RegisterHost extends AppCompatActivity {
+public class HostHome extends AppCompatActivity {
     String[] items = {"Volunteen Pages","תנו לחיות לחיות-20/3/25", "תנו לחיות לחיות 19/3/25", "טוב השדה- 13/11/24"};
     List<String> list = new ArrayList<>();
 
@@ -74,7 +74,7 @@ public class RegisterHost extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 // Show a toast with the selected item
                 String selectedItem = parentView.getItemAtPosition(position).toString();
-                Toast.makeText(RegisterHost.this, "Selected: " + selectedItem, Toast.LENGTH_SHORT).show();
+                Toast.makeText(HostHome.this, "Selected: " + selectedItem, Toast.LENGTH_SHORT).show();
             }
 
 

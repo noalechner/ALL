@@ -46,8 +46,8 @@ public class FireBaseHandler {
                 @Override
                 public void onSuccess(AuthResult authResult) {
                     Toast.makeText(context, "good job! ", Toast.LENGTH_SHORT).show();
-                    User user = getUserRole();
-                    Class page = null;
+//                    User user = getUserRole();
+//                    Class page = null;
 //                    if(user.getUsername().equals("student")) {
 //                        Intent intent = new Intent(context, RegisterStudent.class);
 //                        context.startActivity(intent);

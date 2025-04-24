@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -24,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.annotations.NotNull;
 
-public class RegisterStudent extends AppCompatActivity {
+public class StudentHome extends AppCompatActivity {
     String[] items = {"Volunteen Type","חיות", "חקלאות", "ניצולי שואה","חולי סרטן"};
     private FirebaseDatabase firebaseDatabase;
     private Button fVolun;
@@ -77,11 +76,11 @@ public class RegisterStudent extends AppCompatActivity {
 
                 // Navigate to the corresponding page based on selection
                 if (selectedAnimal.equals("חיות")) {
-                    Intent animalsIntent = new Intent(RegisterStudent.this, AnimalOrganizations.class);
+                    Intent animalsIntent = new Intent(StudentHome.this, AnimalOrganizations.class);
                     startActivity(animalsIntent);
                 }
                 else if (selectedAnimal.equals("חקלאות")) {
-                    Intent farmingIntent = new Intent(RegisterStudent.this, FarmingOrganizations.class);
+                    Intent farmingIntent = new Intent(StudentHome.this, FarmingOrganizations.class);
                     startActivity(farmingIntent);
                 }
 //                else if (selectedAnimal.equals("Snake")) {

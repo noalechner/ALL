@@ -58,13 +58,13 @@
             android:name=".AddNewVolunteen"
             android:exported="false" />
         <activity
-            android:name=".RegisterTeacher"
+            android:name=".TeacherHome"
             android:exported="false" />
         <activity
-            android:name=".RegisterHost"
+            android:name=".HostHome"
             android:exported="false" />
         <activity
-            android:name=".RegisterStudent"
+            android:name=".StudentHome"
             android:exported="false" />
         <activity
             android:name=".LoginForHost"
