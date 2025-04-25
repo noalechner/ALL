@@ -59,6 +59,7 @@ public class AddNewVolunteen extends AppCompatActivity {
                 String vDate = dateVolunteen.getText().toString().trim();
                 String vTime = timeVolunteen.getText().toString().trim();
                 String vAddress = adressVolunteen.getText().toString().trim();
+                String allDetails = "your new volunteen is: name: " + vName + " date: " + vDate + " time: " + vTime + " adress: " + vAddress;
                 SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("vName", vName); // Example: storing user role
@@ -69,19 +70,21 @@ public class AddNewVolunteen extends AppCompatActivity {
                 FirebaseUser user2 = auth.getCurrentUser();
                 // Save user role in Firebase Database
                 String userId = user2.getUid();
-                HostEvents e = new HostEvents(vName,vDate,vTime,vAddress);
+                HostEvents e = new HostEvents(vName, vDate, vTime, vAddress);
                 firebaseDatabase1.getReference("HostEvents").child(userId).setValue(e)
                         .addOnCompleteListener(task1 -> {
                             if (task1.isSuccessful()) {
 //                                Intent intent = new Intent(cntx, RegisterHost.class);
 //                                startActivity(intent);
                                 Query myTopPostsQuery = firebaseDatabase1.getReference("HostEvents").child(userId).child("name").orderByValue();
-                                Log.d("HostEvents",myTopPostsQuery.toString());
+                                Log.d("HostEvents", myTopPostsQuery.toString());
                             } else {
                                 Toast.makeText(AddNewVolunteen.this, "Database Error: " + task1.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
 
                         });
+                Intent intent = new Intent(cntx, HostHome.class);
+                startActivity(intent);
             }
 
         });

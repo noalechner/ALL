@@ -3,6 +3,7 @@ package com.example.afinal;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,10 +12,21 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +38,8 @@ public class HostHome extends AppCompatActivity {
 
     private Button add;
     private Button volunList;
+    private Button bAlert;
+    FirebaseAuth auth2 = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +48,34 @@ public class HostHome extends AppCompatActivity {
         setContentView(R.layout.activity_register_host);
         add = findViewById(R.id.addVolun);
         volunList = findViewById(R.id.goToList);
+        bAlert = findViewById(R.id.btnAlert);
+        String name;
+        String date;
+        String time;
+        String adress;
+        FirebaseUser user2 = auth2.getCurrentUser();
+        String userId = user2.getUid();
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
 //            return insets;
+
+
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("HostEvents").child(userId);
+            reference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        Log.d("dataSnapshot", snapshot.getValue().toString());
+                        name=FirebaseDatabase.getInstance().getReference("HostEvents").child(userId).Get
+                    }
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+
+            });
 
             add.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -54,6 +92,14 @@ public class HostHome extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+
+            bAlert.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showAlertDialogue();
+                }
+            });
+
             return insets;
         });
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
@@ -87,5 +133,11 @@ public class HostHome extends AppCompatActivity {
         });
 
 
+    }
+
+    private void showAlertDialogue() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Alert");
+        builder.setMessage();
     }
 }
