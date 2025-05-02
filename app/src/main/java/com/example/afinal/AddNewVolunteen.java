@@ -84,6 +84,7 @@ public class AddNewVolunteen extends AppCompatActivity {
 
                         });
                 Intent intent = new Intent(cntx, HostHome.class);
+                intent.putExtra("newEventAdded", true);
                 startActivity(intent);
             }
 

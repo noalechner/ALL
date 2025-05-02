@@ -13,6 +13,9 @@ public class Event {
         this.time=time;
         this.adress=adress;
     }
+    public Event() {
+        // קונסטרקטור ריק - חובה
+    }
     public String getName() {
         return name;
     }
@@ -38,10 +41,12 @@ public class Event {
     }
 
     public String getAdress() {
+
         return adress;
     }
 
     public void setAdress(String adress) {
+
         this.adress = adress;
     }
 }
