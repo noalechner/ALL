@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.annotations.NotNull;
 
 public class StudentHome extends AppCompatActivity {
-    String[] items = {"Volunteen Type","חיות", "חקלאות", "ניצולי שואה","חולי סרטן"};
+    String[] items = {"Volunteen Type","animals", "farming", "holocaust survivors","cancer patients"};
     private FirebaseDatabase firebaseDatabase;
     private Button fVolun;
     private Button scheduledVolunteers;
@@ -42,7 +42,7 @@ public class StudentHome extends AppCompatActivity {
             return insets;
         });
 
-        Spinner spinner = findViewById(R.id.spinnerVolunTypes);
+        Spinner spinner = findViewById(R.id.spinnerVolunTypesForStudent);
 
             // Create an ArrayAdapter using a simple spinner item layout and the string array
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.dropdown_reg_student_each, items);
@@ -75,11 +75,11 @@ public class StudentHome extends AppCompatActivity {
                 String selectedAnimal = items[position];
 
                 // Navigate to the corresponding page based on selection
-                if (selectedAnimal.equals("חיות")) {
+                if (selectedAnimal.equals("animals")) {
                     Intent animalsIntent = new Intent(StudentHome.this, AnimalOrganizations.class);
                     startActivity(animalsIntent);
                 }
-                else if (selectedAnimal.equals("חקלאות")) {
+                else if (selectedAnimal.equals("farming")) {
                     Intent farmingIntent = new Intent(StudentHome.this, FarmingOrganizations.class);
                     startActivity(farmingIntent);
                 }

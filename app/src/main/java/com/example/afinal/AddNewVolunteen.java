@@ -6,9 +6,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -24,12 +27,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
 public class AddNewVolunteen extends AppCompatActivity {
+    String[] items = {"Volunteen Topic","animals", "farming", "holocaust survivors","cancer patients"};
+    private Spinner topicVolunteen;
     private EditText nameVolunteen;
     private EditText dateVolunteen;
     private EditText timeVolunteen;
     private EditText adressVolunteen;
     private Button doneButton;
     private FirebaseDatabase firebaseDatabase1;
+    private String topic="";
+
 
 
 
@@ -43,6 +50,7 @@ public class AddNewVolunteen extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        topicVolunteen = findViewById(R.id.spinnerVolunTypesForHost);
         nameVolunteen = findViewById(R.id.inputNameVolun);
         dateVolunteen = findViewById(R.id.inputDateVolun);
         firebaseDatabase1 = FirebaseDatabase.getInstance();
@@ -52,14 +60,55 @@ public class AddNewVolunteen extends AppCompatActivity {
         FirebaseAuth auth = FirebaseAuth.getInstance();
 
 
+
+
+
+        Spinner spinnerH = findViewById(R.id.spinnerVolunTypesForHost);
+
+        // Create an ArrayAdapter using a simple spinner item layout and the string array
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.dropdown_reg_student_each, items);
+        adapter.setDropDownViewResource(R.layout.view_dropdown_item);
+        spinnerH.setAdapter(adapter);
+
+        // Handle Spinner item selection
+        spinnerH.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedAnimal = items[position];
+
+                // Navigate to the corresponding page based on selection
+
+                if (selectedAnimal.equals("animals")) {
+                    topic="animals";
+                }
+                else if (selectedAnimal.equals("farming")) {
+                    topic="farming";
+                }
+                else if (selectedAnimal.equals("holocaust survivors")) {
+                    topic="holocaust survivors";
+                }
+                else if (selectedAnimal.equals("cancer patients")) {
+                    topic="cancer patients";
+                }
+//
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Do nothing
+            }
+        });
+
+
             doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                topic=topic;
                 String vName = nameVolunteen.getText().toString().trim();
                 String vDate = dateVolunteen.getText().toString().trim();
                 String vTime = timeVolunteen.getText().toString().trim();
                 String vAddress = adressVolunteen.getText().toString().trim();
-                String allDetails = "your new volunteen is: name: " + vName + " date: " + vDate + " time: " + vTime + " adress: " + vAddress;
+                String allDetails = "your new volunteen is: topic: " + topic + "name: " + vName + " date: " + vDate + " time: " + vTime + " adress: " + vAddress;
                 SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("vName", vName); // Example: storing user role
@@ -70,13 +119,13 @@ public class AddNewVolunteen extends AppCompatActivity {
                 FirebaseUser user2 = auth.getCurrentUser();
                 // Save user role in Firebase Database
                 String userId = user2.getUid();
-                HostEvents e = new HostEvents(vName, vDate, vTime, vAddress,userId);
-                firebaseDatabase1.getReference("HostEvents").child("replaceWithVolunteeringTopic").child(vName).setValue(e)
+                HostEvents e = new HostEvents(topic,vName, vDate, vTime, vAddress);
+                firebaseDatabase1.getReference("HostEvents").child(topic).setValue(e)
                         .addOnCompleteListener(task1 -> {
                             if (task1.isSuccessful()) {
 //                                Intent intent = new Intent(cntx, RegisterHost.class);
 //                                startActivity(intent);
-                                Query myTopPostsQuery = firebaseDatabase1.getReference("HostEvents").child("replaceWithVolunteeringTopic");
+                                Query myTopPostsQuery = firebaseDatabase1.getReference("HostEvents").child(topic);
                                 Log.d("HostEvents", myTopPostsQuery.toString());
                             } else {
                                 Toast.makeText(AddNewVolunteen.this, "Database Error: " + task1.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -89,6 +138,8 @@ public class AddNewVolunteen extends AppCompatActivity {
             }
 
         });
+
+
 
     }
 }
