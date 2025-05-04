@@ -25,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class LoginForHost extends AppCompatActivity {
+    private String TAG="LoginForHost";
     private FirebaseAuth mAuth;
     private Button subHost;
     private EditText email3;
@@ -73,13 +74,21 @@ public class LoginForHost extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     // Sign in success, update UI with the signed-in user's information
-                                    Log.d("log in!", "signInWithEmail:success");
-                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    Log.d(TAG, "signInWithEmail:success");
+                                    FirebaseUser user=null;
+                                    try {
+                                         user = mAuth.getCurrentUser();
+                                        Log.d(TAG, "succseded to get user");
+                                    }
+                                    catch(Exception e) {
+                                        Log.d(TAG, "failed to get user",e);
+                                    }
+
                                     Intent intent = new Intent(getApplicationContext(), HostHome.class);
                                     startActivity(intent);
                                 } else {
                                     // If sign in fails, display a message to the user.
-                                    Log.w("log in!", "signInWithEmail:failure", task.getException());
+                                    Log.w(TAG, "signInWithEmail:failure", task.getException());
                                     Context cntx = getApplicationContext();
                                     Toast.makeText(cntx, "Authentication failed.", Toast.LENGTH_SHORT).show();
                                 }

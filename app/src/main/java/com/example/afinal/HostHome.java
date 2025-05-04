@@ -39,6 +39,7 @@ public class HostHome extends AppCompatActivity {
     private Button add;
     private Button volunList;
     private Button bAlert;
+    private String TAG="HostHome";
     FirebaseAuth auth2 = FirebaseAuth.getInstance();
 
     @Override
@@ -56,6 +57,7 @@ public class HostHome extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
 //            return insets;
+            Log.d(TAG, "HostHome loaded ");
 
             boolean newEventAdded = getIntent().getBooleanExtra("newEventAdded", false);
             if (newEventAdded) {
@@ -125,34 +127,34 @@ public class HostHome extends AppCompatActivity {
         String nameVol = sharedPreferences.getString("vName", ""); // Default is empty if not found
         list.add(nameVol);
 
-        Spinner spinner = findViewById(R.id.spinner2);
+//        Spinner spinner = findViewById(R.id.spinner2);
 
         // Create an ArrayAdapter using a simple spinner item layout and the string array
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, list);
 
         // Set the adapter to the spinner
-        spinner.setAdapter(adapter);
+//        spinner.setAdapter(adapter);
 
         // Set an item selected listener
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 // Show a toast with the selected item
-                String selectedItem = parentView.getItemAtPosition(position).toString();
-                Toast.makeText(HostHome.this, "Selected: " + selectedItem, Toast.LENGTH_SHORT).show();
+//                String selectedItem = parentView.getItemAtPosition(position).toString();
+//                Toast.makeText(HostHome.this, "Selected: " + selectedItem, Toast.LENGTH_SHORT).show();
             }
 
 
 
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-                // Do nothing
-            }
-        });
-
-
-    }
+////            @Override
+//            public void onNothingSelected(AdapterView<?> parentView) {
+//                // Do nothing
+//            }
+//        });
+//
+//
+//    }
 
     public void alertDone(){
         FirebaseUser user2 = auth2.getCurrentUser();

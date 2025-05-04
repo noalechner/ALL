@@ -72,7 +72,7 @@ public class Register extends AppCompatActivity {
                 String sPasswordRegister = password.getText().toString().trim();
                 int selectedId = roleRadioGroup.getCheckedRadioButtonId();
                 Context cntx = getApplicationContext();
-                Toast.makeText(cntx, "noa", Toast.LENGTH_SHORT).show();
+                Toast.makeText(cntx, "done", Toast.LENGTH_SHORT).show();
 
 //                Class page = RegisterStudent.class;
                 Class page = null;

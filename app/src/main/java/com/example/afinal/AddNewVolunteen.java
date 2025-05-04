@@ -70,13 +70,13 @@ public class AddNewVolunteen extends AppCompatActivity {
                 FirebaseUser user2 = auth.getCurrentUser();
                 // Save user role in Firebase Database
                 String userId = user2.getUid();
-                HostEvents e = new HostEvents(vName, vDate, vTime, vAddress);
-                firebaseDatabase1.getReference("HostEvents").child(userId).setValue(e)
+                HostEvents e = new HostEvents(vName, vDate, vTime, vAddress,userId);
+                firebaseDatabase1.getReference("HostEvents").child("replaceWithVolunteeringTopic").child(vName).setValue(e)
                         .addOnCompleteListener(task1 -> {
                             if (task1.isSuccessful()) {
 //                                Intent intent = new Intent(cntx, RegisterHost.class);
 //                                startActivity(intent);
-                                Query myTopPostsQuery = firebaseDatabase1.getReference("HostEvents").child(userId).child("name").orderByValue();
+                                Query myTopPostsQuery = firebaseDatabase1.getReference("HostEvents").child("replaceWithVolunteeringTopic");
                                 Log.d("HostEvents", myTopPostsQuery.toString());
                             } else {
                                 Toast.makeText(AddNewVolunteen.this, "Database Error: " + task1.getException().getMessage(), Toast.LENGTH_SHORT).show();
