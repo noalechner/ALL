@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Final"
         tools:targetApi="31">
         <activity
+            android:name=".ResultForYourTopic1"
+            android:exported="false" />
+        <activity
             android:name=".reminderManager"
             android:exported="false" />
         <activity
@@ -25,36 +28,7 @@
         <activity
             android:name=".ListOfVolunteen"
             android:exported="false" />
-        <activity
-            android:name=".HashomerHaHadashDetailsPage"
-            android:exported="false" />
-        <activity
-            android:name=".ArtsenooDetailsPage"
-            android:exported="false" />
-        <activity
-            android:name=".ItahdootHaklaeyIsraelDetailsPage"
-            android:exported="false" />
-        <activity
-            android:name=".FarmingOrganizations"
-            android:exported="false" />
-        <activity
-            android:name=".GagLahayotDetailsPage"
-            android:exported="false" />
-        <activity
-            android:name=".HaverAlArbaDetailsPage"
-            android:exported="false" />
-        <activity
-            android:name=".TsaarBaaleyHaimDetailsPage"
-            android:exported="false" />
-        <activity
-            android:name=".TnooLahayotLihyotDetailsPage"
-            android:exported="false" />
-        <activity
-            android:name=".AnimalOrganizations"
-            android:exported="false" />
-        <activity
-            android:name=".StudentChooseVolunType"
-            android:exported="false" />
+
         <activity
             android:name=".AddNewVolunteen"
             android:exported="false" />
@@ -91,15 +65,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver android:name=".ReminderReceiver" />
 
-        <receiver android:name=".WifiReceiver"
+        <receiver android:name=".ReminderReceiver" />
+        <receiver
+            android:name=".WifiReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
-
     </application>
 
 </manifest>

@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:id="@+id/chooseVolunTitle"
+        android:id="@+id/ResultForYourTopicTitle"
         android:layout_width="331dp"
         android:layout_height="232dp"
         android:fontFamily="serif"
@@ -71,10 +71,10 @@
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.414"
+        app:layout_constraintHorizontal_bias="0.411"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.433"
+        app:layout_constraintVertical_bias="0.435"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

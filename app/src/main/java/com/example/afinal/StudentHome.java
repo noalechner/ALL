@@ -23,11 +23,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.annotations.NotNull;
 
+import java.util.ArrayList;
+
 public class StudentHome extends AppCompatActivity {
-    String[] items = {"Volunteen Type","animals", "farming", "holocaust survivors","cancer patients"};
     private FirebaseDatabase firebaseDatabase;
+    ArrayList<String> items = new ArrayList<>();
+//    String[] items = {"Volunteen Type","animals", "farming", "holocaust survivors","cancer patients"};
     private Button fVolun;
     private Button scheduledVolunteers;
+    private String TAG= "StudentHome";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +45,9 @@ public class StudentHome extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
+        items.add("Volunteen Type");
         Spinner spinner = findViewById(R.id.spinnerVolunTypesForStudent);
+
 
             // Create an ArrayAdapter using a simple spinner item layout and the string array
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.dropdown_reg_student_each, items);
@@ -53,8 +58,11 @@ public class StudentHome extends AppCompatActivity {
                                             @Override
                                             public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
                                                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                                                    Log.d("dataSnapshot", snapshot.getValue().toString());
+                                                    String key = snapshot.getKey();
+                                                    items.add(key);
+
                                                 }
+                                                Log.d(TAG, items.toString());
                                             }
                                             @Override
                                             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -72,21 +80,26 @@ public class StudentHome extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedAnimal = items[position];
+                String selectedAnimal = items.get(position);
 
                 // Navigate to the corresponding page based on selection
                 if (selectedAnimal.equals("animals")) {
-                    Intent animalsIntent = new Intent(StudentHome.this, AnimalOrganizations.class);
+                    Intent animalsIntent = new Intent(StudentHome.this, ResultForYourTopic1.class);
                     startActivity(animalsIntent);
                 }
                 else if (selectedAnimal.equals("farming")) {
-                    Intent farmingIntent = new Intent(StudentHome.this, FarmingOrganizations.class);
+                    Intent farmingIntent = new Intent(StudentHome.this, ResultForYourTopic1.class);
                     startActivity(farmingIntent);
                 }
-//                else if (selectedAnimal.equals("Snake")) {
-//                    Intent snakeIntent = new Intent(MainActivity.this, SnakesActivity.class);
-//                    startActivity(snakeIntent);
-//                }
+                else if (selectedAnimal.equals("holocaust survivors")) {
+                    Intent farmingIntent = new Intent(StudentHome.this, ResultForYourTopic1.class);
+                    startActivity(farmingIntent);
+                }
+                else if (selectedAnimal.equals("cancer patients")) {
+                    Intent farmingIntent = new Intent(StudentHome.this, ResultForYourTopic1.class);
+                    startActivity(farmingIntent);
+                }
+//
             }
 
             @Override

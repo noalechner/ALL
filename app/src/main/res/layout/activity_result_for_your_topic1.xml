@@ -5,23 +5,24 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StudentHome">
+    tools:context=".ResultForYourTopic1">
 
 
     <TextView
-        android:id="@+id/chooseVolunTitle"
-        android:layout_width="331dp"
-        android:layout_height="232dp"
+        android:id="@+id/ResultForYourTopicTitle"
+        android:layout_width="371dp"
+        android:layout_height="220dp"
         android:fontFamily="serif"
-        android:text="השומר החדש"
+        android:text="All Results For Your Topic:"
         android:textColor="#2196F3"
         android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.08" />
+        app:layout_constraintVertical_bias="0.032" />
 
 
 
