@@ -17,6 +17,18 @@
         android:theme="@style/Theme.Final"
         tools:targetApi="31">
         <activity
+            android:name=".TopicCancerPatients"
+            android:exported="false" />
+        <activity
+            android:name=".TopicHolocaustSurvivors"
+            android:exported="false" />
+        <activity
+            android:name=".TopicFarming"
+            android:exported="false" />
+        <activity
+            android:name=".TopicAnimals"
+            android:exported="false" />
+        <activity
             android:name=".ResultForYourTopic1"
             android:exported="false" />
         <activity
@@ -28,7 +40,6 @@
         <activity
             android:name=".ListOfVolunteen"
             android:exported="false" />
-
         <activity
             android:name=".AddNewVolunteen"
             android:exported="false" />

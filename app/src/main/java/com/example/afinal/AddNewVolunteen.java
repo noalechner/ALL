@@ -74,20 +74,20 @@ public class AddNewVolunteen extends AppCompatActivity {
         spinnerH.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedAnimal = items[position];
+                String selectedAnswer = items[position];
 
                 // Navigate to the corresponding page based on selection
 
-                if (selectedAnimal.equals("animals")) {
+                if (selectedAnswer.equals("animals")) {
                     topic="animals";
                 }
-                else if (selectedAnimal.equals("farming")) {
+                else if (selectedAnswer.equals("farming")) {
                     topic="farming";
                 }
-                else if (selectedAnimal.equals("holocaust survivors")) {
+                else if (selectedAnswer.equals("holocaust survivors")) {
                     topic="holocaust survivors";
                 }
-                else if (selectedAnimal.equals("cancer patients")) {
+                else if (selectedAnswer.equals("cancer patients")) {
                     topic="cancer patients";
                 }
 //

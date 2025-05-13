@@ -80,24 +80,24 @@ public class StudentHome extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedAnimal = items.get(position);
+                String selectedAnswer = items.get(position);
 
                 // Navigate to the corresponding page based on selection
-                if (selectedAnimal.equals("animals")) {
-                    Intent animalsIntent = new Intent(StudentHome.this, ResultForYourTopic1.class);
+                if (selectedAnswer.equals("animals")) {
+                    Intent animalsIntent = new Intent(StudentHome.this, TopicAnimals.class);
                     startActivity(animalsIntent);
                 }
-                else if (selectedAnimal.equals("farming")) {
-                    Intent farmingIntent = new Intent(StudentHome.this, ResultForYourTopic1.class);
+                else if (selectedAnswer.equals("farming")) {
+                    Intent farmingIntent = new Intent(StudentHome.this, TopicFarming.class);
                     startActivity(farmingIntent);
                 }
-                else if (selectedAnimal.equals("holocaust survivors")) {
-                    Intent farmingIntent = new Intent(StudentHome.this, ResultForYourTopic1.class);
-                    startActivity(farmingIntent);
+                else if (selectedAnswer.equals("holocaust survivors")) {
+                    Intent holocaustSurvivorsIntent = new Intent(StudentHome.this, TopicHolocaustSurvivors.class);
+                    startActivity(holocaustSurvivorsIntent);
                 }
-                else if (selectedAnimal.equals("cancer patients")) {
-                    Intent farmingIntent = new Intent(StudentHome.this, ResultForYourTopic1.class);
-                    startActivity(farmingIntent);
+                else if (selectedAnswer.equals("cancer patients")) {
+                    Intent cancerPatientsIntent = new Intent(StudentHome.this, TopicCancerPatients.class);
+                    startActivity(cancerPatientsIntent);
                 }
 //
             }
