@@ -85,10 +85,10 @@ public class AddNewVolunteen extends AppCompatActivity {
                     topic="farming";
                 }
                 else if (selectedAnswer.equals("holocaust survivors")) {
-                    topic="holocaust survivors";
+                    topic="holocaustSurvivors";
                 }
                 else if (selectedAnswer.equals("cancer patients")) {
-                    topic="cancer patients";
+                    topic="cancerPatients";
                 }
 //
             }
@@ -120,7 +120,7 @@ public class AddNewVolunteen extends AppCompatActivity {
                 // Save user role in Firebase Database
                 String userId = user2.getUid();
                 HostEvents e = new HostEvents(topic,vName, vDate, vTime, vAddress);
-                firebaseDatabase1.getReference("HostEvents").child(topic).setValue(e)
+                firebaseDatabase1.getReference("HostEvents").child(topic).child(vName).setValue(e)
                         .addOnCompleteListener(task1 -> {
                             if (task1.isSuccessful()) {
 //                                Intent intent = new Intent(cntx, RegisterHost.class);

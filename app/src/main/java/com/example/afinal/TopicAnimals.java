@@ -22,6 +22,7 @@ import java.util.ArrayList;
 public class TopicAnimals extends AppCompatActivity {
     private String topicA="animals";
     ArrayList<String> itemsOfTopic = new ArrayList<>();
+    String TAG="TopicAnimals";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +41,16 @@ public class TopicAnimals extends AppCompatActivity {
             @Override
             public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String key = snapshot.getKey();
-                    itemsOfTopic.add(key);
+//                    String key = snapshot.getKey();
+//                    itemsOfTopic.add(key);
+                    String key = snapshot.getValue().toString();
+                    Log.d(TAG,key);
 
                 }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.d(TAG,"data base canclled" + databaseError);
 
             }
 
