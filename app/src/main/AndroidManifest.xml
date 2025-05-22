@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Final"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityForResult1"
+            android:exported="false" />
+        <activity
             android:name=".TopicCancerPatients"
             android:exported="false" />
         <activity
