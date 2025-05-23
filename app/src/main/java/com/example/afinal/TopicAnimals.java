@@ -92,8 +92,8 @@ public class TopicAnimals extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedAnswer = itemsOfTopic.get(position).toString();
                 Log.d("SpinnerSelection", "נבחר: " + selectedAnswer);
-                Intent intentDetails = new Intent(TopicAnimals.this, ActivityForResult1.class);
-                startActivity(intentDetails);
+//                Intent intentDetails = new Intent(TopicAnimals.this, ActivityForResult1.class);
+//                startActivity(intentDetails);
 
             }
 

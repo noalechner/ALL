@@ -1,7 +1,9 @@
 package com.example.afinal;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -41,6 +43,7 @@ public class HostHome extends AppCompatActivity {
     private Button bAlert;
     private String TAG="HostHome";
     FirebaseAuth auth2 = FirebaseAuth.getInstance();
+    private WifiReceiver wifiReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -170,4 +173,23 @@ public class HostHome extends AppCompatActivity {
 //        builder.setTitle("Alert");
 //        builder.setMessage();
 //    }
+@Override
+public void onResume() {
+    super.onResume();
+
+    // Create and register the BroadcastReceiver to listen for connectivity changes
+    wifiReceiver = new WifiReceiver();
+    IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+    registerReceiver(wifiReceiver, filter);  // Use getActivity() to access the context
+}
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        // Unregister the receiver when the fragment is paused
+        if (wifiReceiver != null) {
+            unregisterReceiver(wifiReceiver);
+        }
+    }
 }

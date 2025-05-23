@@ -1,5 +1,7 @@
 package com.example.afinal;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.content.Intent;
 import android.util.Log;
@@ -32,6 +34,7 @@ public class StudentHome extends AppCompatActivity {
     private Button fVolun;
     private Button scheduledVolunteers;
     private String TAG= "StudentHome";
+    private WifiReceiver wifiReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,5 +127,25 @@ public class StudentHome extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Create and register the BroadcastReceiver to listen for connectivity changes
+        wifiReceiver = new WifiReceiver();
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(wifiReceiver, filter);  // Use getActivity() to access the context
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        // Unregister the receiver when the fragment is paused
+        if (wifiReceiver != null) {
+            unregisterReceiver(wifiReceiver);
+        }
     }
 }
