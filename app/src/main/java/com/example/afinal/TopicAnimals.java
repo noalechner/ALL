@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResult;
@@ -50,6 +53,14 @@ public class TopicAnimals extends AppCompatActivity {
             return insets;
         });
 
+        itemsOfTopic.add("Offered Volunteers");
+        Spinner spinner = findViewById(R.id.spinnerVolunteersWithSameTopic);
+
+
+        // Create an ArrayAdapter using a simple spinner item layout and the string array
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.dropdown_reg_student_each, itemsOfTopic);
+        adapter.setDropDownViewResource(R.layout.view_dropdown_item);
+
         //****** ככה אנחנו קוראים מהפיירבייס
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("HostEvents").child(topicA);
         reference.addValueEventListener(new ValueEventListener() {
@@ -71,6 +82,32 @@ public class TopicAnimals extends AppCompatActivity {
             }
         });
         // ******
+
+        // Set the adapter to the spinner
+        spinner.setAdapter(adapter);
+
+        // Handle Spinner item selection
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedAnswer = itemsOfTopic.get(position).toString();
+                Log.d("SpinnerSelection", "נבחר: " + selectedAnswer);
+                Intent intentDetails = new Intent(TopicAnimals.this, ActivityForResult1.class);
+                startActivity(intentDetails);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Do nothing
+            }
+        });
+
+
+
+
+
+
         ActivityResultLauncher<Intent> detailActivityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
