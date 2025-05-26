@@ -55,7 +55,7 @@ public class TopicAnimals extends AppCompatActivity {
         });
 
         itemsOfTopic.add("Offered Volunteers");
-        Spinner spinner = findViewById(R.id.spinnerVolunteersWithSameTopic);
+        Spinner spinner = findViewById(R.id.spinnerVolunteersWithSameTopicAnimals);
 
 
         // Create an ArrayAdapter using a simple spinner item layout and the string array
