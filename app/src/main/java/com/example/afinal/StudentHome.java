@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -115,6 +116,7 @@ public class StudentHome extends AppCompatActivity {
         fVolun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(StudentHome.this, " This feature will be added in the next update ", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(), Finished1.class);
                 startActivity(intent);
             }

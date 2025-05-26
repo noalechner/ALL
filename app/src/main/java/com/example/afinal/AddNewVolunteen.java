@@ -109,10 +109,6 @@ public class AddNewVolunteen extends AppCompatActivity {
                 String vTime = timeVolunteen.getText().toString().trim();
                 String vAddress = adressVolunteen.getText().toString().trim();
                 String allDetails = "your new volunteen is: topic: " + topic + "name: " + vName + " date: " + vDate + " time: " + vTime + " adress: " + vAddress;
-                SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("vName", vName); // Example: storing user role
-                editor.apply(); // Save changes
                 Context cntx = getApplicationContext();
 
 

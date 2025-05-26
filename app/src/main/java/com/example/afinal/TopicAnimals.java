@@ -35,14 +35,14 @@ public class TopicAnimals extends AppCompatActivity {
     private String topicA="animals";
     ArrayList<String> itemsOfTopic = new ArrayList<>();
     String TAG="TopicAnimals";
-    private Button launcher1;
+//    private Button launcher1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_topic_animals);
-        launcher1 = findViewById(R.id.launcher);
+//        launcher1 = findViewById(R.id.launcher);
 
 // Create a HashMap
         HashMap<String, String> volunteerHashMap = new HashMap<>();
@@ -85,16 +85,29 @@ public class TopicAnimals extends AppCompatActivity {
 
         // Set the adapter to the spinner
         spinner.setAdapter(adapter);
-
+        ActivityResultLauncher<Intent> detailActivityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        Log.d(TAG,"returned data " + result.getResultCode());
+                        if (result.getResultCode() == 1) {
+                            Log.d(TAG,"user agreed!");
+                        }
+                        if (result.getResultCode() == 0) {
+                            Log.d(TAG,"user declined");
+                        }
+                    }
+                });
         // Handle Spinner item selection
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedAnswer = itemsOfTopic.get(position).toString();
                 Log.d("SpinnerSelection", "נבחר: " + selectedAnswer);
-//                Intent intentDetails = new Intent(TopicAnimals.this, ActivityForResult1.class);
-//                startActivity(intentDetails);
-
+                Intent i = new Intent(getApplicationContext(), ActivityForResult1.class);
+                i.putExtra("data",volunteerHashMap.get(selectedAnswer));
+                detailActivityResultLauncher.launch(i);
             }
 
             @Override
@@ -108,32 +121,15 @@ public class TopicAnimals extends AppCompatActivity {
 
 
 
-        ActivityResultLauncher<Intent> detailActivityResultLauncher = registerForActivityResult(
-                new ActivityResultContracts.StartActivityForResult(),
-                new ActivityResultCallback<ActivityResult>() {
-                    @Override
-                    public void onActivityResult(ActivityResult result) {
-                        Log.d(TAG,"returned data " + result.getResultCode());
-                        if (result.getResultCode() == 1) {
-                            Log.d(TAG,"user agreed!");
-                        }
-                        if (result.getResultCode() == 0) {
-                            Log.d(TAG,"user declined");
-                        }
-                            // There are no request codes
-//                            Intent data = result.getData();
 
-//                        }
-                    }
-                });
-        launcher1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), ActivityForResult1.class);
-                String dataToBeTransfered = "abc";
-                i.putExtra("data",dataToBeTransfered);
-                detailActivityResultLauncher.launch(i);
-            }
-        });
+//        launcher1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(getApplicationContext(), ActivityForResult1.class);
+//                String dataToBeTransfered = "abc";
+//                i.putExtra("data",dataToBeTransfered);
+//                detailActivityResultLauncher.launch(i);
+//            }
+//        });
     }
 }
