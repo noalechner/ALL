@@ -35,6 +35,7 @@ public class TopicAnimals extends AppCompatActivity {
     private String topicA="animals";
     ArrayList<String> itemsOfTopic = new ArrayList<>();
     String TAG="TopicAnimals";
+    private boolean isFirstSelection = true;
 //    private Button launcher1;
 
     @Override
@@ -103,6 +104,10 @@ public class TopicAnimals extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (isFirstSelection) {
+                    isFirstSelection = false;
+                    return; // דילוג על הבחירה הראשונה האוטומטית
+                }
                 String selectedAnswer = itemsOfTopic.get(position).toString();
                 Log.d("SpinnerSelection", "נבחר: " + selectedAnswer);
                 Intent i = new Intent(getApplicationContext(), ActivityForResult1.class);
