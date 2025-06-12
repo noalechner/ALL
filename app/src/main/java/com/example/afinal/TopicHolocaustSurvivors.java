@@ -36,6 +36,7 @@ public class TopicHolocaustSurvivors extends AppCompatActivity {
     ArrayList<String> itemsOfTopic = new ArrayList<>();
     String TAG="TopicHolocaustSurvivors";
     private boolean isFirstSelection = true;
+    private Button bChangeRule;
 //    private Button launcher1;
 
     @Override
@@ -43,6 +44,7 @@ public class TopicHolocaustSurvivors extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_topic_holocaust_survivors);
+        bChangeRule = findViewById(R.id.btnChangeRule);
 //        launcher1 = findViewById(R.id.launcher);
 
 // Create a HashMap
@@ -118,6 +120,13 @@ public class TopicHolocaustSurvivors extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 // Do nothing
+            }
+        });
+        bChangeRule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
 

@@ -74,6 +74,7 @@ public class LoginForStudent extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("log in!", "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            FirebaseUser user3=null;
                             Intent intent = new Intent(getApplicationContext(), StudentHome.class);
                             startActivity(intent);
                         } else {

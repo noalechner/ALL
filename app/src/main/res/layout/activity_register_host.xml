@@ -92,10 +92,10 @@
         app:strokeColor="#2196F3" />
 
     <Button
-        android:id="@+id/btnAlert"
+        android:id="@+id/btnChangeRule"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Show Alert"
+        android:text="Change rule"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.54"

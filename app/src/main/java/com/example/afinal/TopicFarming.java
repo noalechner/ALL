@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResult;
@@ -36,6 +37,7 @@ public class TopicFarming extends AppCompatActivity {
     ArrayList<String> itemsOfTopic = new ArrayList<>();
     String TAG="TopicFarming";
     private boolean isFirstSelection = true;
+    private Button bChangeRule;
 //    private Button launcher1;
 
     @Override
@@ -43,6 +45,7 @@ public class TopicFarming extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_topic_farming);
+        bChangeRule = findViewById(R.id.btnChangeRule);
 //        launcher1 = findViewById(R.id.launcher);
 
 // Create a HashMap
@@ -93,9 +96,11 @@ public class TopicFarming extends AppCompatActivity {
                     public void onActivityResult(ActivityResult result) {
                         Log.d(TAG,"returned data " + result.getResultCode());
                         if (result.getResultCode() == 1) {
+                            Toast.makeText(TopicFarming.this, " user agreed! ", Toast.LENGTH_LONG).show();
                             Log.d(TAG,"user agreed!");
                         }
                         if (result.getResultCode() == 0) {
+                            Toast.makeText(TopicFarming.this, " user declined... ", Toast.LENGTH_LONG).show();
                             Log.d(TAG,"user declined");
                         }
                     }
@@ -118,6 +123,13 @@ public class TopicFarming extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 // Do nothing
+            }
+        });
+        bChangeRule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
 

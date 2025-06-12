@@ -40,7 +40,7 @@ public class HostHome extends AppCompatActivity {
 
     private Button add;
     private Button volunList;
-    private Button bAlert;
+    private Button bChangeRule;
     private String TAG="HostHome";
     FirebaseAuth auth2 = FirebaseAuth.getInstance();
     private WifiReceiver wifiReceiver;
@@ -52,7 +52,7 @@ public class HostHome extends AppCompatActivity {
         setContentView(R.layout.activity_register_host);
         add = findViewById(R.id.addVolun);
         volunList = findViewById(R.id.goToList);
-        bAlert = findViewById(R.id.btnAlert);
+        bChangeRule = findViewById(R.id.btnChangeRule);
         String date;
         String time;
         String adress;
@@ -113,6 +113,13 @@ public class HostHome extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(getApplicationContext(), ListOfVolunteen.class);
+                    startActivity(intent);
+                }
+            });
+            bChangeRule.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                 }
             });

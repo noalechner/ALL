@@ -2,12 +2,14 @@ package com.example.afinal;
 
 import static android.app.PendingIntent.getActivity;
 
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -20,6 +22,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class TeacherHome extends AppCompatActivity {
     String[] items = {"noa@gmail.com", "ben@gmail.com", "tal@gamil.com", "joe@gmail.com4", "dana@gmail.com"};
     private WifiReceiver wifiReceiver;
+    private Button bChangeRule;
 
 
 
@@ -28,6 +31,7 @@ public class TeacherHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register_teacher);
+        bChangeRule = findViewById(R.id.btnChangeRule);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -60,6 +64,13 @@ public class TeacherHome extends AppCompatActivity {
 
 
 
+        });
+        bChangeRule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
         });
 
 
