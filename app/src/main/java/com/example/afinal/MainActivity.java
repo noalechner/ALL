@@ -24,9 +24,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
-    private Button s;
-    private Button t;
-    private Button h;
+    private Button selectStudent;
+    private Button selectHost;
     private Button register;
 
 
@@ -35,9 +34,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);//
         setContentView(R.layout.activity_main);
-        s = findViewById(R.id.iAmStudent);
-        t = findViewById(R.id.iAmTeacher);
-        h = findViewById(R.id.iAmHost);
+        selectStudent = findViewById(R.id.iAmStudent);
+        selectHost = findViewById(R.id.iAmHost);
         register = findViewById(R.id.goToRegister);
         ValueEventListener postListener = new ValueEventListener() {
             @Override
@@ -51,31 +49,22 @@ public class MainActivity extends AppCompatActivity {
 
             }
         };
-        s.setOnClickListener(new View.OnClickListener() {
+        selectStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), LoginForStudent.class);
                 startActivity(intent);
             }
         });
-        t.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), LoginForTeacher.class);
-                startActivity(intent);
-            }
-        });
 
 
-        h.setOnClickListener(new View.OnClickListener() {
+        selectHost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), LoginForHost.class);
                 startActivity(intent);
             }
         });
-
-
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +72,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
-
 }

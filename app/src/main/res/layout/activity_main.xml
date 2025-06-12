@@ -2,118 +2,95 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
+    android:background="@drawable/background"
     android:layout_width="match_parent"
 
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
-    <Button
-        android:id="@+id/goToRegister"
-        android:layout_width="333dp"
-        android:layout_height="135dp"
-        android:background="@android:color/transparent"
+    <TextView
+        android:id="@+id/LoginTitle"
+        android:layout_width="325dp"
+        android:layout_height="73dp"
         android:fontFamily="sans-serif"
-        android:text="Do Not Have An Account? Register"
+        android:text="@string/header"
+        android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.931" />
+        app:layout_constraintVertical_bias="0.061" />
+
 
     <Button
         android:id="@+id/iAmStudent"
-        android:layout_width="164dp"
-        android:layout_height="62dp"
-        android:backgroundTint="#2196F3"
-        android:shadowColor="#131619"
-        android:text="student"
-        android:textColor="#FFFFFF"
-        android:textColorHighlight="#4A148C"
-        android:textColorHint="#F321BF"
-        android:textColorLink="#880E4F"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.427"
-        app:rippleColor="#2196F3"
-        app:strokeColor="#2196F3" />
-
-    <Button
-        android:id="@+id/iAmTeacher"
-        android:layout_width="159dp"
-        android:layout_height="59dp"
-        android:backgroundTint="#2196F3"
-        android:shadowColor="#131619"
-        android:text="teacher"
-        android:textColor="#FFFFFF"
-        android:textColorHighlight="#4A148C"
-        android:textColorHint="#F321BF"
-        android:textColorLink="#880E4F"
+        android:layout_width="163dp"
+        android:layout_height="63dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="sans-serif"
+        android:text="Student"
+        android:textColor="@color/purple"
+        android:textSize="28dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.565"
-        app:rippleColor="#2196F3"
-        app:strokeColor="#2196F3" />
+        app:layout_constraintVertical_bias="0.304" />
+
+    <TextView
+        android:id="@+id/line"
+        style="?android:attr/listSeparatorTextViewStyle"
+        android:layout_width="300dp"
+        android:layout_height="1dp"
+        android:layout_below="@+id/iAmStudent"
+        android:background="#000"
+        android:gravity="center_horizontal"
+        android:paddingTop="5dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.419" />
 
     <Button
         android:id="@+id/iAmHost"
         android:layout_width="163dp"
         android:layout_height="63dp"
-        android:backgroundTint="#2196F3"
-        android:shadowColor="#131619"
-        android:text="host"
-        android:textColor="#FFFFFF"
-        android:textColorHighlight="#2196F3"
-        android:textColorHint="#2196F3"
-        android:textColorLink="#2196F3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7"
-        app:rippleColor="#2196F3"
-        app:strokeColor="#2196F3" />
-
-    <TextView
-        android:id="@+id/LoginTitle"
-        android:layout_width="325dp"
-        android:layout_height="73dp"
-        android:fontFamily="serif"
-        android:text="VolunTeen"
-        android:textColor="#2196F3"
-        android:textColorLink="#2196F3"
-        android:textSize="48sp"
+        android:background="@android:color/transparent"
+        android:fontFamily="sans-serif"
+        android:text="Host"
+        android:textColor="@color/purple"
+        android:textSize="28dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.674"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.077" />
+        app:layout_constraintVertical_bias="0.532" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="380dp"
-        android:layout_height="143dp"
+    <Button
+        android:id="@+id/goToRegister"
+        android:layout_width="248dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="44dp"
+        android:background="@android:color/transparent"
         android:fontFamily="sans-serif"
-        android:text="welcome to volunteen! what would you like to be today?"
-        android:textSize="34sp"
-        android:textStyle="italic"
+        android:text="Register"
+        android:textColor="@color/blue"
+        android:textSize="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintVertical_bias="0.933" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
