@@ -2,6 +2,7 @@ package com.example.afinal;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -120,6 +121,10 @@ public class Register extends AppCompatActivity {
 //                Log.d("noa", String.valueOf(user2));
                 // Save user role in Firebase Database
                 String userId = user2.getUid();
+                SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor edit = sharedPref.edit();
+                edit.putString("UID",userId);
+                edit.apply();
                 User vUser = new User(role, sEmailRegister);
                 firebaseDatabase.getReference("Users").child(userId).setValue(vUser)
                         .addOnCompleteListener(task1 -> {

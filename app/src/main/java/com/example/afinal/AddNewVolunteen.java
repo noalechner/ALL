@@ -34,7 +34,7 @@ public class AddNewVolunteen extends AppCompatActivity {
     private EditText timeVolunteen;
     private EditText adressVolunteen;
     private Button doneButton;
-    private FirebaseDatabase firebaseDatabase1;
+    private FirebaseDatabase firebaseDatabase;
     private String topic="";
 
 
@@ -53,7 +53,7 @@ public class AddNewVolunteen extends AppCompatActivity {
         topicVolunteen = findViewById(R.id.spinnerVolunTypesForHost);
         nameVolunteen = findViewById(R.id.inputNameVolun);
         dateVolunteen = findViewById(R.id.inputDateVolun);
-        firebaseDatabase1 = FirebaseDatabase.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
         timeVolunteen = findViewById(R.id.inputTimeVolun);
         adressVolunteen = findViewById(R.id.inputAdressVolun);
         doneButton = findViewById(R.id.doneNewVolun);
@@ -116,12 +116,12 @@ public class AddNewVolunteen extends AppCompatActivity {
                 // Save user role in Firebase Database
                 String userId = user2.getUid();
                 HostEvents e = new HostEvents(topic,vName, vDate, vTime, vAddress);
-                firebaseDatabase1.getReference("HostEvents").child(topic).child(vName).setValue(e)
+                firebaseDatabase.getReference("HostEvents").child(topic).child(vName).setValue(e)
                         .addOnCompleteListener(task1 -> {
                             if (task1.isSuccessful()) {
 //                                Intent intent = new Intent(cntx, RegisterHost.class);
 //                                startActivity(intent);
-                                Query myTopPostsQuery = firebaseDatabase1.getReference("HostEvents").child(topic);
+                                Query myTopPostsQuery = firebaseDatabase.getReference("HostEvents").child(topic);
                                 Log.d("HostEvents", myTopPostsQuery.toString());
                             } else {
                                 Toast.makeText(AddNewVolunteen.this, "Database Error: " + task1.getException().getMessage(), Toast.LENGTH_SHORT).show();

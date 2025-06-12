@@ -2,6 +2,7 @@ package com.example.afinal;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -78,6 +79,11 @@ public class LoginForHost extends AppCompatActivity {
                                     FirebaseUser user=null;
                                     try {
                                          user = mAuth.getCurrentUser();
+                                        String userId = user.getUid();
+                                        SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                                        SharedPreferences.Editor edit = sharedPref.edit();
+                                        edit.putString("UID",userId);
+                                        edit.apply();
                                         Log.d(TAG, "succseded to get user");
                                     }
                                     catch(Exception e) {

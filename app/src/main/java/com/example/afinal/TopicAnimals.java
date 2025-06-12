@@ -2,6 +2,7 @@ package com.example.afinal;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +27,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.annotations.NotNull;
 
@@ -38,6 +40,8 @@ public class TopicAnimals extends AppCompatActivity {
     String TAG="TopicAnimals";
     private boolean isFirstSelection = true;
     private Button bChangeRule;
+    private String selectedAnswer;
+    private FirebaseDatabase firebaseDatabase;
 //    private Button launcher1;
 
     @Override
@@ -46,6 +50,7 @@ public class TopicAnimals extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_topic_animals);
         bChangeRule = findViewById(R.id.btnChangeRule);
+        firebaseDatabase = FirebaseDatabase.getInstance();
 //        launcher1 = findViewById(R.id.launcher);
 
 // Create a HashMap
@@ -97,7 +102,19 @@ public class TopicAnimals extends AppCompatActivity {
                         Log.d(TAG,"returned data " + result.getResultCode());
                         if (result.getResultCode() == 1) {
                             Toast.makeText(TopicAnimals.this, " user agreed! ", Toast.LENGTH_LONG).show();
-                            Log.d(TAG,"user agreed!");
+                            SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                            String userId=sharedPref.getString("UID","");
+                            firebaseDatabase.getReference("HostEvents").child("animals_volunteers").child(selectedAnswer).push().setValue(userId)
+                                    .addOnCompleteListener(task1 -> {
+                                        if (task1.isSuccessful()) {
+//                                            Query myTopPostsQuery = firebaseDatabase.getReference("HostEvents").child(topic);
+//                                            Log.d("HostEvents", myTopPostsQuery.toString());
+                                        } else {
+//                                            Toast.makeText(AddNewVolunteen.this, "Database Error: " + task1.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+
+                                    });
+                            Log.d(TAG,"user agreed!" + userId + selectedAnswer);
                         }
                         if (result.getResultCode() == 0) {
                             Toast.makeText(TopicAnimals.this, " user declined... ", Toast.LENGTH_LONG).show();
@@ -113,7 +130,7 @@ public class TopicAnimals extends AppCompatActivity {
                     isFirstSelection = false;
                     return; // דילוג על הבחירה הראשונה האוטומטית
                 }
-                String selectedAnswer = itemsOfTopic.get(position).toString();
+                selectedAnswer = itemsOfTopic.get(position).toString();
                 Log.d("SpinnerSelection", "נבחר: " + selectedAnswer);
                 Intent i = new Intent(getApplicationContext(), ActivityForResult1.class);
                 i.putExtra("data",volunteerHashMap.get(selectedAnswer));

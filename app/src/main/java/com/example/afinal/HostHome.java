@@ -66,6 +66,10 @@ public class HostHome extends AppCompatActivity {
             if (newEventAdded) {
                 FirebaseUser user2 = auth2.getCurrentUser();
                 String userId = user2.getUid();
+//                SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPrefs", MODE_PRIVATE);
+//                SharedPreferences.Editor edit = sharedPref.edit();
+//                edit.putString("UID",userId);
+//                edit.apply();
                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference("HostEvents").child(userId);
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override

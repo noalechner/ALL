@@ -2,6 +2,7 @@ package com.example.afinal;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -74,7 +75,11 @@ public class LoginForStudent extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d("log in!", "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            FirebaseUser user3=null;
+                            String userId = user.getUid();
+                            SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                            SharedPreferences.Editor edit = sharedPref.edit();
+                            edit.putString("UID",userId);
+                            edit.apply();
                             Intent intent = new Intent(getApplicationContext(), StudentHome.class);
                             startActivity(intent);
                         } else {
