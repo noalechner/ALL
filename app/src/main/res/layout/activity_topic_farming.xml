@@ -5,51 +5,58 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".TopicFarming">
+
     <Button
         android:id="@+id/btnChangeRule"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="248dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="44dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="serif"
         android:text="Change rule"
+        android:textColor="@color/blue"
+        android:textSize="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.831" />
+        app:layout_constraintVertical_bias="0.933" />
 
 
     <TextView
-        android:id="@+id/AllResultForAnimalsTitle"
-        android:layout_width="309dp"
-        android:layout_height="224dp"
+        android:id="@+id/AllResultForFarmingTitle"
+        android:layout_width="336dp"
+        android:layout_height="208dp"
         android:fontFamily="serif"
         android:text="All Results For Your Topic-"
-        android:textColor="#2196F3"
-        android:textSize="48sp"
-        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="@color/darkBlue"
+        android:textSize="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.844"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.163" />
+        app:layout_constraintVertical_bias="0.092" />
+
 
     <TextView
         android:id="@+id/farmingTitle"
-        android:layout_width="275dp"
-        android:layout_height="85dp"
+        android:layout_width="292dp"
+        android:layout_height="89dp"
         android:fontFamily="serif"
         android:text="Farming"
-        android:textColor="#101010"
-        android:textSize="38sp"
+        android:textColor="@color/blue"
+        android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.686"
+        app:layout_constraintHorizontal_bias="0.958"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.458" />
+        app:layout_constraintVertical_bias="0.296" />
 
     <Spinner
         android:id="@+id/spinnerVolunteersWithSameTopicFarming"
@@ -59,10 +66,9 @@
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.411"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.541"
+        app:layout_constraintVertical_bias="0.383"
         tools:ignore="MissingConstraints" />
 
 

@@ -4,5 +4,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#2196F3</color>
     <color name="purple">#9B20E6</color>
+    <color name="darkBlue">#1A237E</color>
+    <color name="grey">#0D202D</color>
+    <color name="toorkiz">#00BCD4</color>
+    <color name="pink">#EC407A</color>
+    <color name="lightPurple">#AB47BC</color>
+
 
 </resources>

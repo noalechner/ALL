@@ -5,36 +5,35 @@
 
     android:background="@drawable/background"
     android:layout_width="match_parent"
-
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <TextView
-        android:id="@+id/LoginTitle"
+        android:id="@+id/mainTitle"
         android:layout_width="325dp"
         android:layout_height="73dp"
-        android:fontFamily="sans-serif"
+        android:fontFamily="serif"
         android:text="@string/header"
         android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="48sp"
+        android:textColor="@color/darkBlue"
+        android:textSize="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.061" />
-
+        app:layout_constraintVertical_bias="0.063" />
 
     <Button
         android:id="@+id/iAmStudent"
-        android:layout_width="163dp"
-        android:layout_height="63dp"
+        android:layout_width="192dp"
+        android:layout_height="55dp"
         android:background="@android:color/transparent"
-        android:fontFamily="sans-serif"
+        android:fontFamily="serif"
         android:text="Student"
-        android:textColor="@color/purple"
-        android:textSize="28dp"
+        android:textColor="@color/lightPurple"
+        android:textSize="32dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,9 +62,9 @@
         android:layout_width="163dp"
         android:layout_height="63dp"
         android:background="@android:color/transparent"
-        android:fontFamily="sans-serif"
+        android:fontFamily="serif"
         android:text="Host"
-        android:textColor="@color/purple"
+        android:textColor="@color/lightPurple"
         android:textSize="28dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -81,7 +80,7 @@
         android:layout_height="49dp"
         android:layout_marginBottom="44dp"
         android:background="@android:color/transparent"
-        android:fontFamily="sans-serif"
+        android:fontFamily="serif"
         android:text="Register"
         android:textColor="@color/blue"
         android:textSize="19dp"

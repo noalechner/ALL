@@ -5,37 +5,25 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".AddNewVolunteen">
 
     <TextView
         android:id="@+id/hiHostTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="380dp"
+        android:layout_height="202dp"
         android:fontFamily="serif"
-        android:text="Hi Host!"
-        android:textColor="#2196F3"
-        android:textSize="48sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Ready to add a new Volunteen?"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="@color/darkBlue"
+        android:textSize="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.091" />
+        app:layout_constraintVertical_bias="0.025" />
+
 
     <EditText
         android:id="@+id/inputNameVolun"
@@ -48,48 +36,56 @@
         app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.336" />
+        app:layout_constraintVertical_bias="0.373" />
+
 
     <TextView
-        android:id="@+id/nameOfVolunteenTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/nameOfVolunteenLittleTitle"
+        android:layout_width="192dp"
+        android:layout_height="25dp"
         android:fontFamily="serif"
-        android:text="Name of Voluntten"
-        android:textSize="14sp"
-        android:textStyle="normal"
+        android:text="Name of Volunteen"
+        android:textColor="@color/lightPurple"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.281" />
+        app:layout_constraintVertical_bias="0.335" />
 
     <TextView
-        android:id="@+id/dateTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/dateLittleTitle"
+        android:layout_width="192dp"
+        android:layout_height="25dp"
         android:fontFamily="serif"
         android:text="Date"
+        android:textColor="@color/lightPurple"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.428" />
+        app:layout_constraintVertical_bias="0.448" />
 
     <TextView
-        android:id="@+id/TimeTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/TimeLittleTitle"
+        android:layout_width="192dp"
+        android:layout_height="25dp"
         android:fontFamily="serif"
         android:text="Time"
+        android:textColor="@color/lightPurple"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.578" />
+        app:layout_constraintVertical_bias="0.571" />
 
     <EditText
         android:id="@+id/inputAdressVolun"
@@ -102,41 +98,41 @@
         app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintVertical_bias="0.773" />
+
 
     <TextView
-        android:id="@+id/adressTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/addressLittleTitle"
+        android:layout_width="192dp"
+        android:layout_height="25dp"
         android:fontFamily="serif"
-        android:text="Adress"
+        android:text="Address"
+        android:textColor="@color/lightPurple"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.725" />
 
     <Button
         android:id="@+id/doneNewVolun"
-        android:layout_width="137dp"
-        android:layout_height="52dp"
-        android:backgroundTint="#2196F3"
-        android:onClick="onClick"
-        android:shadowColor="#131619"
-        android:text="done"
-        android:textColor="#FFFFFF"
-        android:textColorHighlight="#2196F3"
-        android:textColorHint="#2196F3"
-        android:textColorLink="#2196F3"
+        android:layout_width="248dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="44dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="serif"
+        android:text="lets go"
+        android:textColor="@color/blue"
+        android:textSize="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.423"
+        app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976"
-        app:rippleColor="#2196F3"
-        app:strokeColor="#2196F3" />
+        app:layout_constraintVertical_bias="0.952" />
 
     <EditText
         android:id="@+id/inputDateVolun"
@@ -158,10 +154,10 @@
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.651" />
+        app:layout_constraintVertical_bias="0.626" />
 
     <Spinner
         android:id="@+id/spinnerVolunTypesForHost"
@@ -170,26 +166,27 @@
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.059"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.183"
+        app:layout_constraintVertical_bias="0.254"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/topicLittleTitle"
+        android:layout_width="66dp"
+        android:layout_height="43dp"
         android:fontFamily="serif"
-        android:scrollbarSize="4dp"
         android:text="Topic"
-        android:textSize="14sp"
+        android:textColor="@color/lightPurple"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintHorizontal_bias="0.037"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.133" />
+        app:layout_constraintVertical_bias="0.216" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

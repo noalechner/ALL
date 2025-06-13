@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:textSize="24dp"
     android:textColor="@color/white"
-    android:background="#0075BB"
+    android:background="@color/lightPurple"
     android:padding="5dp">
 
 

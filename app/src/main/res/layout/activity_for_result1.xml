@@ -5,19 +5,26 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".ActivityForResult1">
+
 
     <Button
         android:id="@+id/decline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="175dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="44dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="serif"
         android:text="decline"
+        android:textColor="@color/blue"
+        android:textSize="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.242"
+        app:layout_constraintHorizontal_bias="0.067"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.802" />
+        app:layout_constraintVertical_bias="0.906" />
 
     <TextView
         android:id="@+id/text"
@@ -33,14 +40,20 @@
 
     <Button
         android:id="@+id/agree"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="175dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="44dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="serif"
         android:text="agree"
+        android:textColor="@color/blue"
+        android:textSize="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintHorizontal_bias="0.86"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.802" />
+        app:layout_constraintVertical_bias="0.906" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

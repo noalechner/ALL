@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,59 +11,53 @@
 
     <TextView
         android:id="@+id/ResultForYourTopicTitle"
-        android:layout_width="331dp"
-        android:layout_height="232dp"
+        android:layout_width="336dp"
+        android:layout_height="208dp"
         android:fontFamily="serif"
-        android:text="Hello! Choose your Volunteen Today"
-        android:textColor="#2196F3"
-        android:textSize="48sp"
-        android:textStyle="bold"
+        android:text="Choose your Volunteen for Today"
+        android:textAlignment="center"
+        android:textColor="@color/darkBlue"
+        android:textSize="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.08" />
-
+        app:layout_constraintVertical_bias="0.088" />
 
     <Button
         android:id="@+id/GoToFinishedVolunteers"
-        android:layout_width="137dp"
-        android:layout_height="52dp"
-        android:backgroundTint="#2196F3"
-        android:shadowColor="#131619"
+        android:layout_width="160dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="44dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="serif"
         android:text="Finished Volunteers"
-        android:textColor="#FFFFFF"
-        android:textColorHighlight="#2196F3"
-        android:textColorHint="#2196F3"
-        android:textColorLink="#2196F3"
+        android:textColor="@color/blue"
+        android:textSize="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.145"
+        app:layout_constraintHorizontal_bias="0.063"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.922"
-        app:rippleColor="#2196F3"
-        app:strokeColor="#2196F3" />
+        app:layout_constraintVertical_bias="0.988" />
+
 
     <Button
         android:id="@+id/scheduledV"
-        android:layout_width="137dp"
-        android:layout_height="52dp"
-        android:backgroundTint="#2196F3"
-        android:shadowColor="#131619"
+        android:layout_width="160dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="44dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="serif"
         android:text="Scheduled Volunteers"
-        android:textColor="#FFFFFF"
-        android:textColorHighlight="#2196F3"
-        android:textColorHint="#2196F3"
-        android:textColorLink="#2196F3"
+        android:textColor="@color/blue"
+        android:textSize="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintHorizontal_bias="0.849"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.922"
-        app:rippleColor="#2196F3"
-        app:strokeColor="#2196F3" />
+        app:layout_constraintVertical_bias="0.988" />
 
     <Spinner
         android:id="@+id/spinnerVolunTypesForStudent"
@@ -74,7 +69,7 @@
         app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.521"
+        app:layout_constraintVertical_bias="0.393"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

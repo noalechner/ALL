@@ -27,7 +27,6 @@ public class Register extends AppCompatActivity {
     private Button submitButton;
     private EditText email;
     private EditText password;
-    private RadioButton teacher;
     private RadioButton student;
     private RadioButton host;
     private RadioGroup roleRadioGroup;
@@ -60,7 +59,7 @@ public class Register extends AppCompatActivity {
         password = findViewById(R.id.RegisterPassword);
         buttonReg = findViewById(R.id.buttonOfRegister);
 
-        teacher = findViewById(R.id.teacher);
+
         student = findViewById(R.id.student);
         host = findViewById(R.id.host);
         roleRadioGroup = findViewById(R.id.radioGroupRole);
@@ -83,9 +82,7 @@ public class Register extends AppCompatActivity {
                 if (student.isChecked()) {
                     page = StudentHome.class;
                 }
-                if (teacher.isChecked()) {
-                    page = TeacherHome.class;
-                }
+
 
                 String sEmail = email.getText().toString().trim();
                 String sPassword = password.getText().toString().trim();

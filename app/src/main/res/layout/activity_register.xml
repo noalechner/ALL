@@ -5,54 +5,57 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".Register">
+
 
     <TextView
         android:id="@+id/RegisterTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="224dp"
+        android:layout_height="81dp"
         android:fontFamily="serif"
         android:text="Register"
-        android:textColor="#2196F3"
+        android:textColor="@color/darkBlue"
         android:textColorLink="#2196F3"
         android:textSize="48sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.438"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.073" />
+        app:layout_constraintVertical_bias="0.061" />
 
     <TextView
         android:id="@+id/emailRegisterTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="66dp"
+        android:layout_height="43dp"
+        android:fontFamily="sans-serif-medium"
         android:text="email"
-        android:textColor="#68706F"
-        android:textSize="20sp"
+        android:textColor="@color/lightPurple"
+        android:textSize="19dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
+        app:layout_constraintHorizontal_bias="0.249"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.201" />
+        app:layout_constraintVertical_bias="0.193" />
 
     <TextView
         android:id="@+id/passwordRegisterTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
         android:text="password"
-        android:textColor="#7F7474"
-        android:textSize="20sp"
+        android:textColor="@color/lightPurple"
+        android:textSize="19dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
+        app:layout_constraintHorizontal_bias="0.261"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.318" />
+        app:layout_constraintVertical_bias="0.306" />
 
     <EditText
         android:id="@+id/RegisterPassword"
@@ -62,30 +65,29 @@
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.353"
+        app:layout_constraintHorizontal_bias="0.425"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.354" />
+        app:layout_constraintVertical_bias="0.335" />
 
     <Button
         android:id="@+id/buttonOfRegister"
-        android:layout_width="137dp"
-        android:layout_height="52dp"
-        android:backgroundTint="#2196F3"
-        android:shadowColor="#131619"
+        android:layout_width="248dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="44dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="serif"
         android:text="submit"
-        android:textColor="#FFFFFF"
-        android:textColorHighlight="#2196F3"
-        android:textColorHint="#2196F3"
-        android:textColorLink="#2196F3"
+        android:textColor="@color/blue"
+        android:textSize="19dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.817"
-        app:rippleColor="#2196F3"
-        app:strokeColor="#2196F3" />
+        app:layout_constraintVertical_bias="0.933" />
+
 
     <EditText
         android:id="@+id/RegisterEmailAddress"
@@ -95,26 +97,26 @@
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.353"
+        app:layout_constraintHorizontal_bias="0.425"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.23" />
+        app:layout_constraintVertical_bias="0.225" />
 
-     <TextView
-        android:id="@+id/text_i_am"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:text="I am a"
-        android:textColor="#7F7474"
-        android:textSize="20sp"
+    <TextView
+        android:id="@+id/selectRule"
+        android:layout_width="195dp"
+        android:layout_height="48dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="select rule"
+        android:textColor="@color/lightPurple"
+        android:textSize="19dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.199"
+        app:layout_constraintHorizontal_bias="0.147"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.437" />
+        app:layout_constraintVertical_bias="0.449" />
 
     <RadioGroup
         android:id="@+id/radioGroupRole"
@@ -128,22 +130,19 @@
         app:layout_constraintVertical_bias="0.59" >
 
         <RadioButton
-            android:id="@+id/teacher"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="teacher"
-            android:textSize="14sp" />
-
-        <RadioButton
             android:id="@+id/student"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:textColor="@color/darkBlue"
             android:text="student" />
 
         <RadioButton
             android:id="@+id/host"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:textColor="@color/darkBlue"
             android:text="host" />
     </RadioGroup>
 

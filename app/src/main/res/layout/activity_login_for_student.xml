@@ -2,10 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background"
     android:layout_width="match_parent"
-
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
 
     <EditText
         android:id="@+id/sLoginEmail"
@@ -13,10 +14,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="enter your email"
-
-
         android:inputType="text"
-        android:textColor="#D4948787"
+        android:textColor="#0C1457"
         android:textColorHighlight="#D4948787"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,22 +43,22 @@
 
     <Button
         android:id="@+id/submitGoToStudent"
-        android:layout_width="137dp"
-        android:layout_height="52dp"
-        android:backgroundTint="#2196F3"
-        android:shadowColor="#131619"
+        android:layout_width="248dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="44dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="serif"
         android:text="submit"
-        android:textColor="#FFFFFF"
-        android:textColorHighlight="#2196F3"
-        android:textColorHint="#2196F3"
-        android:textColorLink="#2196F3"
+        android:textColor="@color/blue"
+        android:textSize="19dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.481"
-        app:rippleColor="#2196F3"
-        app:strokeColor="#2196F3" />
+        app:layout_constraintVertical_bias="0.933" />
+
 
     <TextView
         android:id="@+id/LoginTitle"
@@ -67,10 +66,9 @@
         android:layout_height="81dp"
         android:fontFamily="serif"
         android:text="Log In"
-        android:textColor="#2196F3"
+        android:textColor="@color/darkBlue"
         android:textColorLink="#2196F3"
         android:textSize="48sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.438"
@@ -78,13 +76,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.061" />
 
+
     <TextView
         android:id="@+id/emailLoginTitle"
         android:layout_width="66dp"
         android:layout_height="43dp"
         android:fontFamily="sans-serif-medium"
         android:text="email"
-        android:textColor="#D3948787"
+        android:textColor="@color/lightPurple"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -100,7 +99,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
         android:text="password"
-        android:textColor="#D4948787"
+        android:textColor="@color/lightPurple"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -5,22 +5,23 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".Finished1">
 
     <TextView
         android:id="@+id/TitleFinishedVolun"
-        android:layout_width="345dp"
-        android:layout_height="255dp"
+        android:layout_width="321dp"
+        android:layout_height="166dp"
         android:fontFamily="serif"
         android:text="My Finished Volunteers"
-        android:textColor="#2196F3"
-        android:textColorLink="#2196F3"
-        android:textSize="48sp"
-        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="@color/darkBlue"
+        android:textSize="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.069" />
+        app:layout_constraintVertical_bias="0.063" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
