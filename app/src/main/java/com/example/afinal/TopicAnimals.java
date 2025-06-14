@@ -39,7 +39,6 @@ public class TopicAnimals extends AppCompatActivity {
     ArrayList<String> itemsOfTopic = new ArrayList<>();
     String TAG="TopicAnimals";
     private boolean isFirstSelection = true;
-    private Button bChangeRule;
     private String selectedAnswer;
     private FirebaseDatabase firebaseDatabase;
 //    private Button launcher1;
@@ -49,7 +48,6 @@ public class TopicAnimals extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_topic_animals);
-        bChangeRule = findViewById(R.id.btnChangeRule);
         firebaseDatabase = FirebaseDatabase.getInstance();
 //        launcher1 = findViewById(R.id.launcher);
 
@@ -142,13 +140,7 @@ public class TopicAnimals extends AppCompatActivity {
                 // Do nothing
             }
         });
-        bChangeRule.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
 
 

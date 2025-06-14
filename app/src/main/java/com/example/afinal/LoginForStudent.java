@@ -81,6 +81,7 @@ public class LoginForStudent extends AppCompatActivity {
                             edit.putString("UID",userId);
                             edit.apply();
                             Intent intent = new Intent(getApplicationContext(), StudentHome.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);//שלא תהיה היסטוריה
                             startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.

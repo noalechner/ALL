@@ -36,6 +36,7 @@ public class StudentHome extends AppCompatActivity {
     private Button scheduledVolunteers;
     private String TAG= "StudentHome";
     private WifiReceiver wifiReceiver;
+    private Button logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class StudentHome extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register_student);
         fVolun = findViewById(R.id.GoToFinishedVolunteers);
+        logout = findViewById(R.id.logout);
         scheduledVolunteers = findViewById(R.id.scheduledV);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -127,6 +129,12 @@ public class StudentHome extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), reminderManager.class);
                 startActivity(intent);
+            }
+        });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LogoutManager.logout(getApplicationContext());
             }
         });
     }

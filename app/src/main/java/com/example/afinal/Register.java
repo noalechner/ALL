@@ -27,8 +27,6 @@ public class Register extends AppCompatActivity {
     private Button submitButton;
     private EditText email;
     private EditText password;
-    private RadioButton student;
-    private RadioButton host;
     private RadioGroup roleRadioGroup;
     private FirebaseDatabase firebaseDatabase;
     private static Context context;
@@ -60,30 +58,14 @@ public class Register extends AppCompatActivity {
         buttonReg = findViewById(R.id.buttonOfRegister);
 
 
-        student = findViewById(R.id.student);
-        host = findViewById(R.id.host);
-        roleRadioGroup = findViewById(R.id.radioGroupRole);
-
 
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String sEmailRegister = email.getText().toString().trim();
                 String sPasswordRegister = password.getText().toString().trim();
-                int selectedId = roleRadioGroup.getCheckedRadioButtonId();
                 Context cntx = getApplicationContext();
                 Toast.makeText(cntx, "done", Toast.LENGTH_SHORT).show();
-
-//                Class page = RegisterStudent.class;
-                Class page = null;
-                if (host.isChecked()) {
-                    page = HostHome.class;
-                }
-                if (student.isChecked()) {
-                    page = StudentHome.class;
-                }
-
-
                 String sEmail = email.getText().toString().trim();
                 String sPassword = password.getText().toString().trim();
                 f.RegisterUser(sEmailRegister, sPasswordRegister);
@@ -103,9 +85,8 @@ public class Register extends AppCompatActivity {
 //                    return;
 //                }
 
-                RadioButton selectedRadioButton = findViewById(selectedId);
-                String role = selectedRadioButton.getText().toString();
-                Class finalPage = page;
+
+
 //*** התבנית לשמירה בפיירבייס
                 FirebaseUser user2=null;
                 try {
@@ -128,7 +109,8 @@ public class Register extends AppCompatActivity {
                             if (task1.isSuccessful()) {
                                 Toast.makeText(Register.this, "Registration Successful", Toast.LENGTH_SHORT).show();
 //                                                    redirectToRoleActivity(role);
-                                Intent intent = new Intent(cntx, finalPage);
+                                Intent intent = new Intent(cntx, MainActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);//שלא תהיה היסטוריה
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(Register.this, "Database Error: " + task1.getException().getMessage(), Toast.LENGTH_SHORT).show();
