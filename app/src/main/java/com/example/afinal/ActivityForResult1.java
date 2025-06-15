@@ -49,7 +49,5 @@ public class ActivityForResult1 extends AppCompatActivity {
                 finish();
             }
         });
-
-
     }
 }

@@ -33,11 +33,9 @@ import com.google.firebase.database.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class HostHome extends AppCompatActivity {
     String[] items = {"Volunteen Pages","תנו לחיות לחיות-20/3/25", "תנו לחיות לחיות 19/3/25", "טוב השדה- 13/11/24"};
     List<String> list = new ArrayList<>();
-
     private Button add;
     private Button volunList;
     private Button logout;
@@ -61,15 +59,10 @@ public class HostHome extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
 //            return insets;
             Log.d(TAG, "HostHome loaded ");
-
             boolean newEventAdded = getIntent().getBooleanExtra("newEventAdded", false);
             if (newEventAdded) {
                 FirebaseUser user2 = auth2.getCurrentUser();
                 String userId = user2.getUid();
-//                SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPrefs", MODE_PRIVATE);
-//                SharedPreferences.Editor edit = sharedPref.edit();
-//                edit.putString("UID",userId);
-//                edit.apply();
                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference("HostEvents").child(userId);
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -80,12 +73,10 @@ public class HostHome extends AppCompatActivity {
                             String adress = post.getAdress();
                             String date = post.getDate();
                             String time = post.getTime();
-
                             String message = "שם ההתנדבות: " + name + "\n"
                                     + "מיקום: " + adress + "\n"
                                     + "תאריך: " + date + "\n"
                                     + "שעה: " + time;
-
                             new AlertDialog.Builder(HostHome.this)  // <-- החלף בשם של הקונטקסט (האקטיביטי שלך)
                                     .setTitle("פרטי ההתנדבות שלך")
                                     .setMessage(message)
@@ -95,16 +86,12 @@ public class HostHome extends AppCompatActivity {
                             Log.w("Firebase", "Event is null");
                         }
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
                         Log.e("Firebase", "Database error: " + databaseError.getMessage());
                     }
                 });
             }
-
-
-
             add.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -112,7 +99,6 @@ public class HostHome extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
-
             volunList.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -127,35 +113,13 @@ public class HostHome extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
-
-//            bAlert.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    showAlertDialogue();
-//                }
-//            });
-
             return insets;
         });
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String nameVol = sharedPreferences.getString("vName", ""); // Default is empty if not found
         list.add(nameVol);
-
-//        Spinner spinner = findViewById(R.id.spinner2);
-
         // Create an ArrayAdapter using a simple spinner item layout and the string array
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, list);
-
-        // Set the adapter to the spinner
-//        spinner.setAdapter(adapter);
-
-        // Set an item selected listener
-//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                // Show a toast with the selected item
-//                String selectedItem = parentView.getItemAtPosition(position).toString();
-//                Toast.makeText(HostHome.this, "Selected: " + selectedItem, Toast.LENGTH_SHORT).show();
             }
 
 

@@ -37,9 +37,6 @@ public class AddNewVolunteen extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
     private String topic="";
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,26 +55,17 @@ public class AddNewVolunteen extends AppCompatActivity {
         adressVolunteen = findViewById(R.id.inputAdressVolun);
         doneButton = findViewById(R.id.doneNewVolun);
         FirebaseAuth auth = FirebaseAuth.getInstance();
-
-
-
-
-
         Spinner spinnerH = findViewById(R.id.spinnerVolunTypesForHost);
-
         // Create an ArrayAdapter using a simple spinner item layout and the string array
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.dropdown_reg_student_each, items);
         adapter.setDropDownViewResource(R.layout.view_dropdown_item);
         spinnerH.setAdapter(adapter);
-
         // Handle Spinner item selection
         spinnerH.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selectedAnswer = items[position];
-
                 // Navigate to the corresponding page based on selection
-
                 if (selectedAnswer.equals("animals")) {
                     topic="animals";
                 }
@@ -92,14 +80,11 @@ public class AddNewVolunteen extends AppCompatActivity {
                 }
 //
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 // Do nothing
             }
         });
-
-
             doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,8 +95,6 @@ public class AddNewVolunteen extends AppCompatActivity {
                 String vAddress = adressVolunteen.getText().toString().trim();
                 String allDetails = "your new volunteen is: topic: " + topic + "name: " + vName + " date: " + vDate + " time: " + vTime + " adress: " + vAddress;
                 Context cntx = getApplicationContext();
-
-
                 FirebaseUser user2 = auth.getCurrentUser();
                 // Save user role in Firebase Database
                 String userId = user2.getUid();
@@ -126,16 +109,11 @@ public class AddNewVolunteen extends AppCompatActivity {
                             } else {
                                 Toast.makeText(AddNewVolunteen.this, "Database Error: " + task1.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
-
                         });
                 Intent intent = new Intent(cntx, HostHome.class);
                 intent.putExtra("newEventAdded", true);
                 startActivity(intent);
             }
-
         });
-
-
-
     }
 }

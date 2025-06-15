@@ -37,7 +37,6 @@ public class FireBaseHandler {
         this.auth = auth;
         this.context = context;
     }
-
     public void signIn(String sEmail, String sPassword) {
         if (TextUtils.isEmpty(sEmail) || TextUtils.isEmpty(sPassword)) {
             Toast.makeText(context, "error, please try again ", Toast.LENGTH_SHORT).show();
@@ -46,30 +45,10 @@ public class FireBaseHandler {
                 @Override
                 public void onSuccess(AuthResult authResult) {
                     Toast.makeText(context, "good job! ", Toast.LENGTH_SHORT).show();
-//                    User user = getUserRole();
-//                    Class page = null;
-//                    if(user.getUsername().equals("student")) {
-//                        Intent intent = new Intent(context, RegisterStudent.class);
-//                        context.startActivity(intent);
-//                    }
-//                    if(user.getUsername().equals("teacher")) {
-//                        Intent intent = new Intent(context, RegisterTeacher.class);
-//                        context.startActivity(intent);
-//
-//                    }
-//                    if(user.getUsername().equals("admin")) {
-//                        Intent intent = new Intent(context, RegisterHost.class);
-//                        context.startActivity(intent);
-//                    }
-
-
-
                 }
-            }); //לא יכול להיות במיין
+            });
         }
     }
-
-
     public void RegisterUser(String sEmail, String sPassword) {
         auth.createUserWithEmailAndPassword(sEmail, sPassword)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -81,10 +60,7 @@ public class FireBaseHandler {
                         } else {
                             Toast.makeText(context, "failed "+ task ,Toast.LENGTH_SHORT).show();
                             Log.d(TAG, "test failed");
-
-
                         }
-
                     }
                 });
     }
@@ -102,23 +78,17 @@ public class FireBaseHandler {
                 }
                 else {
                     DataSnapshot dataSnapshot = task.getResult();
-
                     // מיפוי הנתונים לאובייקט User
                     if (dataSnapshot.exists()) {
                         String email = dataSnapshot.child("email").getValue(String.class);
                         String role = dataSnapshot.child("job").getValue(String.class);
-
                         userData[0] = new User(email, role);
                     }
-
                 }
-
             }
         });
-
         return userData[0];
     }
-
 }
 
 

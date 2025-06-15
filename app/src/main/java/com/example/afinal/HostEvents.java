@@ -9,8 +9,6 @@ public class HostEvents {
     private final String time;
     private final String address;
 
-
-
     public HostEvents(String topic, String name,  String date, String time, String address){
         this.topic=topic;
         this.name=name;
@@ -22,22 +20,16 @@ public class HostEvents {
     public String getTopic() {
         return topic;
     }
-
     public String getName() {
         return name;
     }
-
     public String getDate() {
         return date;
     }
-
     public String getTime() {
         return time;
     }
-
     public String getAddress() {
         return address;
     }
-
-
 }

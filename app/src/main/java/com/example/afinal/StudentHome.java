@@ -32,7 +32,6 @@ public class StudentHome extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
     ArrayList<String> items = new ArrayList<>();
 //    String[] items = {"Volunteen Type","animals", "farming", "holocaust survivors","cancer patients"};
-    private Button fVolun;
     private Button scheduledVolunteers;
     private String TAG= "StudentHome";
     private WifiReceiver wifiReceiver;
@@ -43,7 +42,6 @@ public class StudentHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register_student);
-        fVolun = findViewById(R.id.GoToFinishedVolunteers);
         logout = findViewById(R.id.logout);
         scheduledVolunteers = findViewById(R.id.scheduledV);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -115,18 +113,11 @@ public class StudentHome extends AppCompatActivity {
         });
 
 
-        fVolun.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(StudentHome.this, " This feature will be added in the next update ", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(getApplicationContext(), Finished1.class);
-                startActivity(intent);
-            }
-        });
 
         scheduledVolunteers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(StudentHome.this, " This feature will be added in the next update ", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(), reminderManager.class);
                 startActivity(intent);
             }
