@@ -1,5 +1,4 @@
 package com.example.afinal;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,19 +12,16 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-
 public class AddNewVolunteen extends AppCompatActivity {
     String[] items = {"Volunteen Topic","animals", "farming", "holocaust survivors","cancer patients"};
     private Spinner topicVolunteen;
@@ -78,7 +74,6 @@ public class AddNewVolunteen extends AppCompatActivity {
                 else if (selectedAnswer.equals("cancer patients")) {
                     topic="cancerPatients";
                 }
-//
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {

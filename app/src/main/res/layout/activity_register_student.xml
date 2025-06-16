@@ -40,23 +40,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.008" />
 
-    <Button
-        android:id="@+id/GoToFinishedVolunteers"
-        android:layout_width="160dp"
-        android:layout_height="72dp"
-        android:layout_marginBottom="44dp"
-        android:background="@android:color/transparent"
-        android:fontFamily="serif"
-        android:text="Finished Volunteers"
-        android:textColor="@color/blue"
-        android:textSize="19dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.063"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.988" />
-
 
     <Button
         android:id="@+id/scheduledV"
@@ -70,7 +53,6 @@
         android:textSize="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.849"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.988" />

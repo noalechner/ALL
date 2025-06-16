@@ -1,5 +1,4 @@
 package com.example.afinal;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,10 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
@@ -24,7 +21,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 public class LoginForHost extends AppCompatActivity {
     private String TAG="LoginForHost";
     private FirebaseAuth mAuth;
@@ -33,15 +29,12 @@ public class LoginForHost extends AppCompatActivity {
     private EditText password3;
     private String role;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);//
         setContentView(R.layout.activity_login_for_host);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         FirebaseAuth auth = FirebaseAuth.getInstance();
-//        FireBaseHandler f = new FireBaseHandler(auth,this);
         mAuth = FirebaseAuth.getInstance();
         FirebaseApp.initializeApp(this);
         subHost = findViewById(R.id.GoToFinishedVolunteers);
@@ -55,13 +48,9 @@ public class LoginForHost extends AppCompatActivity {
                 User post = dataSnapshot.getValue(User.class);
                 role = post.getRole();
                 Toast.makeText(getApplicationContext(), "the role is "+ role,Toast.LENGTH_SHORT).show();
-
-                // ..
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         };
         subHost.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +58,6 @@ public class LoginForHost extends AppCompatActivity {
             public void onClick(View v) {
                 String sEmail = email3.getText().toString().trim();
                 String sPassword = password3.getText().toString().trim();
-
                 mAuth.signInWithEmailAndPassword(sEmail, sPassword).addOnCompleteListener( new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {

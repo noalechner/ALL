@@ -1,5 +1,4 @@
 package com.example.afinal;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,10 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
@@ -24,15 +21,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 public class LoginForStudent extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Button subStudent;
     private EditText email1;
     private EditText password1;
-//    private String role;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,17 +43,9 @@ public class LoginForStudent extends AppCompatActivity {
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // Get Post object and use the values to update the UI
-//                User post = dataSnapshot.getValue(User.class);
-//                role = post.getRole();
-//                Toast.makeText(getApplicationContext(), "the role is "+ role,Toast.LENGTH_SHORT).show();
-
-                // ..
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         };
         subStudent.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +78,5 @@ public class LoginForStudent extends AppCompatActivity {
                 });
             }
         });
-
     }
 }

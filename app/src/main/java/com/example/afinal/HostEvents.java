@@ -1,7 +1,5 @@
 package com.example.afinal;
-
 import com.google.firebase.Timestamp;
-
 public class HostEvents {
     private final String topic;
     private final String name;
@@ -15,7 +13,6 @@ public class HostEvents {
         this.date=date;
         this.time=time;
         this.address=address;
-
     }
     public String getTopic() {
         return topic;

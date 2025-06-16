@@ -22,13 +22,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 public class MainActivity extends AppCompatActivity {
     private Button selectStudent;
     private Button selectHost;
     private Button register;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +40,8 @@ public class MainActivity extends AppCompatActivity {
                 // Get Post object and use the values to update the UI
                 User post = dataSnapshot.getValue(User.class);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         };
         selectStudent.setOnClickListener(new View.OnClickListener() {
@@ -56,8 +51,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
         selectHost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

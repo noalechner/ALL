@@ -16,11 +16,9 @@ public class WifiReceiver extends BroadcastReceiver {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         Log.d(TAG, "Listening For Wifi");
-
         if (activeNetwork == null || !activeNetwork.isConnected() || activeNetwork.getType() != ConnectivityManager.TYPE_WIFI) {
             // Wi-Fi is disconnected
             Log.d(TAG, "Wi-Fi is disconnected.");
-
             // Show an alert dialog to the user
             new AlertDialog.Builder(context)
                     .setTitle("Wi-Fi Disconnected")

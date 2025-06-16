@@ -1,7 +1,5 @@
 package com.example.afinal;
-
 import static androidx.core.content.ContextCompat.startActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.pdf.PdfDocument;
@@ -9,9 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -23,15 +19,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.logging.Logger;
-
 public class FireBaseHandler {
     private static FirebaseDatabase database = FirebaseDatabase.getInstance();
     private static DatabaseReference myRef = database.getReference();
     private static FirebaseAuth auth;
     private static Context context;
-    private static final String TAG = "noa";
+    private static final String TAG = "done";
 
     public FireBaseHandler(FirebaseAuth auth, Context context) {
         this.auth = auth;
@@ -78,7 +72,7 @@ public class FireBaseHandler {
                 }
                 else {
                     DataSnapshot dataSnapshot = task.getResult();
-                    // מיפוי הנתונים לאובייקט User
+                    //    all data turns to an object
                     if (dataSnapshot.exists()) {
                         String email = dataSnapshot.child("email").getValue(String.class);
                         String role = dataSnapshot.child("job").getValue(String.class);

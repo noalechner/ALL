@@ -8,23 +8,6 @@
     android:background="@drawable/background"
     tools:context=".TopicCancerPatients">
 
-    <Button
-        android:id="@+id/btnChangeRule"
-        android:layout_width="248dp"
-        android:layout_height="49dp"
-        android:layout_marginBottom="44dp"
-        android:background="@android:color/transparent"
-        android:fontFamily="serif"
-        android:text="Change rule"
-        android:textColor="@color/blue"
-        android:textSize="19dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.933" />
-
 
     <TextView
         android:id="@+id/AllResultForCancerPatientsTitle"

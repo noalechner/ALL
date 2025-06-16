@@ -41,7 +41,6 @@ public class TopicAnimals extends AppCompatActivity {
     private boolean isFirstSelection = true;
     private String selectedAnswer;
     private FirebaseDatabase firebaseDatabase;
-//    private Button launcher1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,26 +48,19 @@ public class TopicAnimals extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_topic_animals);
         firebaseDatabase = FirebaseDatabase.getInstance();
-//        launcher1 = findViewById(R.id.launcher);
-
-// Create a HashMap
+// Create a HashMap-where we saved all volunteers data
         HashMap<String, String> volunteerHashMap = new HashMap<>();
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
         itemsOfTopic.add("Offered Volunteers");
         Spinner spinner = findViewById(R.id.spinnerVolunteersWithSameTopicAnimals);
-
-
         // Create an ArrayAdapter using a simple spinner item layout and the string array
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.dropdown_reg_student_each, itemsOfTopic);
         adapter.setDropDownViewResource(R.layout.view_dropdown_item);
-
-        //****** ככה אנחנו קוראים מהפיירבייס
+        //****** thats how we read from firebase
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("HostEvents").child(topicA);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -89,7 +81,6 @@ public class TopicAnimals extends AppCompatActivity {
             }
         });
         // ******
-
         // Set the adapter to the spinner
         spinner.setAdapter(adapter);
         ActivityResultLauncher<Intent> detailActivityResultLauncher = registerForActivityResult(
@@ -110,7 +101,6 @@ public class TopicAnimals extends AppCompatActivity {
                                         } else {
 //                                            Toast.makeText(AddNewVolunteen.this, "Database Error: " + task1.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                         }
-
                                     });
                             Log.d(TAG,"user agreed!" + userId + selectedAnswer);
                         }
@@ -134,28 +124,10 @@ public class TopicAnimals extends AppCompatActivity {
                 i.putExtra("data",volunteerHashMap.get(selectedAnswer));
                 detailActivityResultLauncher.launch(i);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 // Do nothing
             }
         });
-
-
-
-
-
-
-
-
-//        launcher1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(getApplicationContext(), ActivityForResult1.class);
-//                String dataToBeTransfered = "abc";
-//                i.putExtra("data",dataToBeTransfered);
-//                detailActivityResultLauncher.launch(i);
-//            }
-//        });
     }
 }

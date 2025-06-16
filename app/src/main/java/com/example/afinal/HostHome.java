@@ -1,5 +1,4 @@
 package com.example.afinal;
-
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -10,9 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.Toast;
-
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -20,7 +17,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -29,10 +25,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.List;
-
 public class HostHome extends AppCompatActivity {
     String[] items = {"Volunteen Pages","תנו לחיות לחיות-20/3/25", "תנו לחיות לחיות 19/3/25", "טוב השדה- 13/11/24"};
     List<String> list = new ArrayList<>();
@@ -57,7 +51,6 @@ public class HostHome extends AppCompatActivity {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-//            return insets;
             Log.d(TAG, "HostHome loaded ");
             boolean newEventAdded = getIntent().getBooleanExtra("newEventAdded", false);
             if (newEventAdded) {
@@ -109,8 +102,7 @@ public class HostHome extends AppCompatActivity {
             logout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
+                    LogoutManager.logout(getApplicationContext());
                 }
             });
             return insets;
@@ -121,47 +113,21 @@ public class HostHome extends AppCompatActivity {
         // Create an ArrayAdapter using a simple spinner item layout and the string array
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, list);
             }
-
-
-
-
-////            @Override
-//            public void onNothingSelected(AdapterView<?> parentView) {
-//                // Do nothing
-//            }
-//        });
-//
-//
-//    }
-
     public void alertDone(){
         FirebaseUser user2 = auth2.getCurrentUser();
         String userId = user2.getUid();
     }
-
-
-
-
-
-//    private void showAlertDialogue() {
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setTitle("Alert");
-//        builder.setMessage();
-//    }
 @Override
 public void onResume() {
     super.onResume();
-
     // Create and register the BroadcastReceiver to listen for connectivity changes
     wifiReceiver = new WifiReceiver();
     IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
     registerReceiver(wifiReceiver, filter);  // Use getActivity() to access the context
 }
-
     @Override
     public void onPause() {
         super.onPause();
-
         // Unregister the receiver when the fragment is paused
         if (wifiReceiver != null) {
             unregisterReceiver(wifiReceiver);
