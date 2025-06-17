@@ -19,6 +19,7 @@ public class Register extends AppCompatActivity {
     private Button buttonReg;
     private EditText email;
     private EditText password;
+    private EditText phoneNumber;
     private FirebaseDatabase firebaseDatabase;
     private static Context context;
     private String role;
@@ -38,12 +39,14 @@ public class Register extends AppCompatActivity {
         });
         email = findViewById(R.id.RegisterEmailAddress);
         password = findViewById(R.id.RegisterPassword);
+        phoneNumber = findViewById(R.id.RegisterPhoneNumber);
         buttonReg = findViewById(R.id.buttonOfRegister);
         buttonReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String sEmailRegister = email.getText().toString().trim();
                 String sPasswordRegister = password.getText().toString().trim();
+                String sPhoneNumberRegister = phoneNumber.getText().toString().trim();
                 Context cntx = getApplicationContext();
                 Toast.makeText(cntx, "done", Toast.LENGTH_SHORT).show();
                 String sEmail = email.getText().toString().trim();

@@ -28,6 +28,7 @@ public class LoginForHost extends AppCompatActivity {
     private EditText email3;
     private EditText password3;
     private String role;
+    private Button forgotPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class LoginForHost extends AppCompatActivity {
         subHost = findViewById(R.id.GoToFinishedVolunteers);
         email3 = findViewById(R.id.hLoginEmail);
         password3 = findViewById(R.id.hLoginPassword);
+        forgotPassword = findViewById(R.id.forgotPaswwordButton);
         ref.child("STUDENTS").child("studentsId").setValue("volunteerPlace");
         ValueEventListener postListener = new ValueEventListener() {
             @Override

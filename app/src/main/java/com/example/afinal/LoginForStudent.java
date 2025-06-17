@@ -26,10 +26,11 @@ public class LoginForStudent extends AppCompatActivity {
     private Button subStudent;
     private EditText email1;
     private EditText password1;
+    private Button forgotPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);//
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_for_student);
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -39,6 +40,7 @@ public class LoginForStudent extends AppCompatActivity {
         subStudent = findViewById(R.id.submitGoToStudent);
         email1 = findViewById(R.id.sLoginEmail);
         password1 = findViewById(R.id.sLoginPassword);
+        forgotPassword = findViewById(R.id.forgotPaswwordButton);
         ref.child("STUDENTS").child("studentsId").setValue("volunteerPlace");
         ValueEventListener postListener = new ValueEventListener() {
             @Override
