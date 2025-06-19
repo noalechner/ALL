@@ -38,30 +38,25 @@ public class ListOfVolunteen extends AppCompatActivity {
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String userId=sharedPref.getString("UID","");
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("HostEvents");
+        //TODO:: לעשות את מה שעשינו עם ה query בתוך אנימלס, גם לכל שאר הטופיקים
+        // לקחת את הפונקציה של 55, להכניס אותה לפונקציה משלה שמקבלת את ה query והלריץ אותה עבור כל טופיק
         Query query = reference.child("animals").orderByChild("ownerId").equalTo(userId);
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot snapshot1 : snapshot.getChildren()) {
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        });
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
+       qFire(query);
+    }
+    public void qFire(Query q){
+        q.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     // Data exists where hostEventId is ownerId
                     for (DataSnapshot childSnapshot : snapshot.getChildren()) {
                         // Process each item found
-                       Log.d(TAG,"Found item: " + childSnapshot.getKey() + " -> " + childSnapshot.getValue());
+                        Log.d(TAG,"Found item: " + childSnapshot.getKey() + " -> " + childSnapshot.getValue());
                         // You can convert childSnapshot.getValue() to your data model object here
                     }
                 } else {
                     // No data found where hostEventId is 111
-                   Log.d(TAG,"No data found with hostEventId");
+                    Log.d(TAG,"No data found with hostEventId");
                 }
             }
 
@@ -72,6 +67,4 @@ public class ListOfVolunteen extends AppCompatActivity {
             }
         });
     }
-
-
 }
