@@ -57,33 +57,33 @@ public class HostHome extends AppCompatActivity {
                 FirebaseUser user2 = auth2.getCurrentUser();
                 String userId = user2.getUid();
                 DatabaseReference reference = FirebaseDatabase.getInstance().getReference("HostEvents").child(userId);
-                reference.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
-                        Event post = dataSnapshot.getValue(Event.class);
-                        if (post != null) {
-                            String name = post.getName();
-                            String adress = post.getAdress();
-                            String date = post.getDate();
-                            String time = post.getTime();
-                            String message = "שם ההתנדבות: " + name + "\n"
-                                    + "מיקום: " + adress + "\n"
-                                    + "תאריך: " + date + "\n"
-                                    + "שעה: " + time;
-                            new AlertDialog.Builder(HostHome.this)  // <-- החלף בשם של הקונטקסט (האקטיביטי שלך)
-                                    .setTitle("פרטי ההתנדבות שלך")
-                                    .setMessage(message)
-                                    .setPositiveButton("סגור", null)
-                                    .show();
-                        } else {
-                            Log.w("Firebase", "Event is null");
-                        }
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        Log.e("Firebase", "Database error: " + databaseError.getMessage());
-                    }
-                });
+//                reference.addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
+//                        Event post = dataSnapshot.getValue(Event.class);
+//                        if (post != null) {
+//                            String name = post.getName();
+//                            String adress = post.getAdress();
+//                            String date = post.getDate();
+//                            String time = post.getTime();
+//                            String message = "שם ההתנדבות: " + name + "\n"
+//                                    + "מיקום: " + adress + "\n"
+//                                    + "תאריך: " + date + "\n"
+//                                    + "שעה: " + time;
+//                            new AlertDialog.Builder(HostHome.this)  // <-- החלף בשם של הקונטקסט (האקטיביטי שלך)
+//                                    .setTitle("פרטי ההתנדבות שלך")
+//                                    .setMessage(message)
+//                                    .setPositiveButton("סגור", null)
+//                                    .show();
+//                        } else {
+//                            Log.w("Firebase", "Event is null");
+//                        }
+//                    }
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError databaseError) {
+//                        Log.e("Firebase", "Database error: " + databaseError.getMessage());
+//                    }
+//                });
             }
             add.setOnClickListener(new View.OnClickListener() {
                 @Override

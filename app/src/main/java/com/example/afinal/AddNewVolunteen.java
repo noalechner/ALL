@@ -93,7 +93,7 @@ public class AddNewVolunteen extends AppCompatActivity {
                 FirebaseUser user2 = auth.getCurrentUser();
                 // Save user role in Firebase Database
                 String userId = user2.getUid();
-                HostEvents e = new HostEvents(topic,vName, vDate, vTime, vAddress);
+                HostEvents e = new HostEvents(topic,userId,vName, vDate, vTime, vAddress);
                 firebaseDatabase.getReference("HostEvents").child(topic).child(vName).setValue(e)
                         .addOnCompleteListener(task1 -> {
                             if (task1.isSuccessful()) {

@@ -31,6 +31,9 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.annotations.NotNull;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -93,7 +96,12 @@ public class TopicAnimals extends AppCompatActivity {
                             Toast.makeText(TopicAnimals.this, " user agreed! ", Toast.LENGTH_LONG).show();
                             SharedPreferences sharedPref = getApplicationContext().getSharedPreferences("MyPrefs", MODE_PRIVATE);
                             String userId=sharedPref.getString("UID","");
-                            firebaseDatabase.getReference("HostEvents").child("animals_volunteers").child(selectedAnswer).push().setValue(userId)
+                            String volunteenData=volunteerHashMap.get(selectedAnswer);
+                            volunteenData.replace("{","");
+                            volunteenData.replace("}","");
+                            String[] arr=volunteenData.split(",");
+                            String ownerId=arr[5].split("=")[1];
+                            firebaseDatabase.getReference("eventVolunteers").child(ownerId).child(selectedAnswer).push().setValue(userId)
                                     .addOnCompleteListener(task1 -> {
                                         if (task1.isSuccessful()) {
 //                                            Query myTopPostsQuery = firebaseDatabase.getReference("HostEvents").child(topic);
